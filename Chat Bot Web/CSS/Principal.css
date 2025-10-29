@@ -1,0 +1,401 @@
+/* Estilo general futurista */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Efecto de fondo brillante */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,255,255,0.2), transparent 60%);
+    animation: glow 6s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes glow {
+    from {opacity: 0.3;}
+    to {opacity: 0.6;}
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+header h1 {
+    font-size: 4em;
+    color: cyan;
+    text-shadow: 0 0 20px cyan, 0 0 40px cyan;
+}
+
+header .slogan {
+    font-size: 1.2em;
+    color: #aeefff;
+    margin-top: 10px;
+}
+
+/* Sección de información */
+.about {
+    display: flex;
+    flex-direction: column; /* apilar el recuadro y el texto debajo */
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 50px;
+}
+
+.info-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid cyan;
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 0 20px cyan;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: scale(1.02);
+}
+
+/* Botones de niveles */
+.levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 50px;
+    justify-items: center;
+    justify-content: center; /* centrar el grid dentro del contenedor */
+}
+
+/* Asegurar que cada celda (.level) centre su contenido (el botón) */
+.level{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.dropdown-btn {
+    background: transparent;
+    border: 2px solid cyan;
+    color: cyan;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 0 10px cyan;
+}
+
+.dropdown-btn:hover {
+    background: cyan;
+    color: #000;
+    box-shadow: 0 0 30px cyan, 0 0 60px cyan;
+}
+
+/* Enlaces que actúan como botones (diseño solicitado) */
+.level-link {
+    display: inline-block;
+    background: #ffffff;
+    color: #05282f; /* texto oscuro para buen contraste */
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1.15em;
+    font-family: inherit; /* usar la tipografía global (Orbitron) */
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(5,40,47,0.35), 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    text-align: center;
+    width: auto; /* no forzar ancho completo, permitir centrar */
+    max-width: 320px;
+}
+
+.level-link:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(5,40,47,0.35);
+}
+
+.level-link:active {
+    transform: translateY(-2px) scale(0.995);
+    box-shadow: 0 10px 24px rgba(5,40,47,0.25);
+}
+
+/* Contenido desplegable */
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 1px solid cyan;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background: rgba(0, 255, 255, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #aeefff;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.4);
+}
+
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    height: auto; /* permitir que el contenido crezca y el footer sea visible */
+    overflow-y: auto; /* permitir desplazamiento vertical */
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+
+/* Contenedor del asistente - usar transform para animar (mejor rendimiento) */
+#asistente {
+    position: fixed; /* se mueve por la ventana */
+    top: 0; /* el desplazamiento real lo controlamos por transform en JS */
+    left: 0;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transform-origin: center;
+    will-change: transform, opacity;
+    animation: flotar-transform 6s ease-in-out infinite;
+}
+
+/* Decoración indirecta: pseudo-elemento que no afecta el texto */
+#asistente::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 140px;
+    height: 70px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at 30% 30%, rgba(255,200,0,0.18), transparent 40%);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(6px);
+    animation: asistente-deco 7s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* Imagen sin fondo */
+.imagen-bot {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Mensaje emergente */
+#mensaje {
+    display: none;
+    position: absolute;
+    top: -50px;
+    left: 90px;
+    background: white;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Movimiento tipo "revoloteo" optimizado con transform */
+@keyframes flotar-transform {
+    0%   { transform: translate(0,0) rotate(-6deg); }
+    12%  { transform: translate(-18px,-6px) rotate(6deg); }
+    25%  { transform: translate(16px,-10px) rotate(-3deg); }
+    38%  { transform: translate(-8px,8px) rotate(6deg); }
+    50%  { transform: translate(0px,12px) rotate(-4deg); }
+    62%  { transform: translate(10px,-8px) rotate(8deg); }
+    75%  { transform: translate(-14px,-4px) rotate(-2deg); }
+    88%  { transform: translate(6px,6px) rotate(2deg); }
+    100% { transform: translate(0,0) rotate(-6deg); }
+}
+
+@keyframes asistente-deco {
+    0%   { transform: translate(-50%, -50%) translateY(0) rotate(0); opacity: 0.95; }
+    50%  { transform: translate(-50%, -50%) translateY(-10px) rotate(2deg); opacity: 1; }
+    100% { transform: translate(-50%, -50%) translateY(0) rotate(-2deg); opacity: 0.95; }
+}
+
+/* Efecto de brillito (sparkles) */
+.sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgb(248, 228, 4);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px rgba(255,255,255,0.8);
+    pointer-events: none;
+    opacity: 1;
+    animation: desaparecer 1s linear forwards;
+}
+
+@keyframes desaparecer {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.2); }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #asistente,
+    #asistente::before,
+    .sparkle,
+    .overlay {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ==========================
+   Visual enhancements (additive)
+   - no cambia contenido existente
+   - microinteracciones, decoraciones y accesibilidad
+   ========================== */
+
+:root{
+    --accent1: #00f0ff;
+    --accent2: #8affc1;
+    --glass: rgba(255,255,255,0.05);
+    --glass-strong: rgba(255,255,255,0.12);
+    --card-radius: 14px;
+}
+
+/* Subtle animated background blobs behind the overlay (non-intrusive) */
+body::before,
+body::after{
+    content: "";
+    position: fixed;
+    width: 40vmax;
+    height: 40vmax;
+    left: -10vmax;
+    top: -12vmax;
+    pointer-events: none;
+    z-index: -2; /* behind overlay */
+    background: radial-gradient(circle at 30% 30%, rgba(0,240,255,0.08), transparent 30%), radial-gradient(circle at 70% 70%, rgba(170,255,140,0.06), transparent 30%);
+    filter: blur(28px);
+    transform: translate3d(0,0,0);
+    animation: blob-move 18s linear infinite;
+    opacity: 0.95;
+}
+body::after{
+    right: -10vmax;
+    left: auto;
+    top: auto;
+    bottom: -12vmax;
+    animation-duration: 22s;
+    transform: translateZ(0);
+}
+
+@keyframes blob-move{
+    0%{ transform: translate3d(0,0,0) rotate(0deg); }
+    50%{ transform: translate3d(6vw,-4vh,0) rotate(8deg); }
+    100%{ transform: translate3d(0,0,0) rotate(0deg); }
+}
+
+/* Glass sheen on cards without changing markup */
+.info-card,
+.contenido-tema{
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: var(--card-radius);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.02);
+    transition: transform 0.32s cubic-bezier(.22,.9,.35,1), box-shadow 0.32s ease, background 0.32s ease;
+}
+.choose-level{
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: inherit; /* seguir color del body (contraste) */
+}
+
+/* Si .choose-level está dentro de .levels (grid), forzar que ocupe toda la fila y quede centrado sobre los botones */
+.levels .choose-level{
+    grid-column: 1 / -1; /* ocupar todas las columnas del grid */
+    text-align: center;
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+    opacity: 0.98;
+}
+.info-card:hover,
+.contenido-tema:hover{ transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,0.45); }
+
+/* Button glow / micro-ripple (pure CSS, additive) */
+.boton-interactivo{ position: relative; overflow: hidden; }
+.boton-interactivo::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,240,255,0.12), rgba(138,255,193,0.08));
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 260ms ease, transform 360ms ease;
+    pointer-events: none;
+}
+.boton-interactivo:hover::after{ opacity: 1; transform: scale(1.02); }
+
+/* Make level links more attractive */
+.level-link{
+    background: linear-gradient(180deg, #ffffff 0%, #f3ffff 100%);
+    border: 1px solid rgba(0,255,255,0.18);
+    box-shadow: 0 12px 30px rgba(0,255,255,0.06), 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* subtle entrance for sections */
+.seccion{ opacity: 0; transform: translateY(10px); animation: section-in 600ms ease forwards; }
+@keyframes section-in{ to { opacity: 1; transform: translateY(0); } }
+
+/* nav link underline animation */
+.site-nav a{ position: relative; overflow: visible; }
+.site-nav a::after{ content: '' ; position: absolute; left: 12%; right: 12%; bottom: -6px; height: 2px; background: linear-gradient(90deg,var(--accent1),var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 260ms cubic-bezier(.22,.9,.35,1); opacity: 0.95; }
+.site-nav a:hover::after, .site-nav a.active::after{ transform: scaleX(1); }
+
+/* improve assistant visual (drop shadow + subtle halo) */
+.imagen-bot{ filter: drop-shadow(0 10px 18px rgba(0,0,0,0.6)) drop-shadow(0 4px 12px rgba(0,240,255,0.06)); transition: transform 320ms ease, filter 200ms ease; }
+/* slight scale when hovering assistant */
+#asistente:hover .imagen-bot{ transform: scale(1.06) translateY(-2px); }
+
+/* custom thin scrollbar to match theme */
+::-webkit-scrollbar{ width: 10px; height: 10px; }
+::-webkit-scrollbar-track{ background: transparent; }
+::-webkit-scrollbar-thumb{ background: linear-gradient(180deg, rgba(0,240,255,0.18), rgba(138,255,193,0.12)); border-radius: 999px; }
+
+/* small performance: disable animations for reduced-motion users */
+@media (prefers-reduced-motion: reduce){
+    body::before, body::after, .seccion, .info-card, .contenido-tema, .boton-interactivo::after { animation: none !important; transition: none !important; }
+}
+

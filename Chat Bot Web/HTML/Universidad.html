@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad - Temas</title>
+    <link rel="stylesheet" href="../CSS/PQuimica.css">
+    <style>
+        .boton-interactivo {
+            position: fixed;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+            z-index: 1000;
+        }
+
+        .boton-interactivo:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        #chatBotBtn {
+            bottom: 80px;
+            right: 20px;
+        }
+
+        #descargarPDF {
+            bottom: 80px;
+            left: 20px;
+        }
+
+        .seccion {
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+
+        /* Local header styles for hero section */
+        .page-hero {
+            padding: 32px 20px;
+            background: linear-gradient(180deg, rgba(0, 240, 255, 0.06), rgba(0, 0, 0, 0));
+            border-radius: 12px;
+            margin: 18px auto 24px;
+            max-width: 1100px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+
+        .hero-inner {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-left {
+            flex: 1 1 56%;
+        }
+
+        .nivel-pill {
+            display: inline-block;
+            background: rgba(138, 255, 193, 0.08);
+            color: var(--accent1, #00f0ff);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.86rem;
+            border: 1px solid rgba(0, 255, 255, 0.08);
+        }
+
+        .hero-lead {
+            margin-top: 10px;
+            color: rgba(0, 0, 0, 0.75);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-ctas {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Ensure hero CTAs move with the hero (override any fixed button rules) */
+        .page-hero .boton-interactivo {
+            position: relative !important;
+            right: auto !important;
+            bottom: auto !important;
+        }
+
+        .hero-ctas .boton-interactivo {
+            padding: 10px 14px;
+            font-size: 0.95rem;
+        }
+
+        .hero-illustration {
+            width: 220px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-illustration svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+        }
+
+        @media (max-width:880px) {
+            .hero-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-illustration {
+                width: 100%;
+                height: 160px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-illustration svg {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navegación superior -->
+
+
+    <script type="module">
+        // 1. Carga el script de Flowise
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+        // 2. Inicializa el chatbot en modo pop-up
+        Chatbot.init({
+            chatflowid: "3e8eb4e4-55e0-4a94-a000-fef79dc28410", // Asegúrese de que este sea SU ID de Chatflow
+            apiHost: "http://localhost:3000",
+            chatbotName: "Polen AI",                   // Asegúrese de que este sea SU URL de Flowise
+        })
+    </script>
+
+
+
+
+    <nav class="site-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="Principal.html">Home</a></li>
+            <li><a href="Primaria.html">Nivel 1</a></li>
+            <li><a href="Secundaria.html">Nivel 2</a></li>
+            <li><a href="Preparatoria.html">Nivel 3</a></li>
+            <li><a href="Universidad.html" class="active">Nivel 4</a></li>
+        </ul>
+    </nav>
+    <header class="page-hero" aria-labelledby="universidad-title">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <span class="nivel-pill">Nivel 4 • Universidad</span>
+                <h1 id="universidad-title" class="titulo-tema">Nivel 4</h1>
+                <p class="hero-lead">Materiales avanzados de temas STEM centrados en el análisis y la integración de
+                    conocimientos. El tutor generativo ofrece apoyo especializado para profundizar en los conceptos y
+                    favorecer un aprendizaje autónomo y flexible.</p>
+                <div class="hero-ctas">
+                    <a href="#quimica" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Química">Química</a>
+                    <a href="#historia" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Historia">Historia</a>
+                    <a href="#tecnologia" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Tecnología">Tecnología</a>
+                    <a href="#matematicas" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Matemáticas">Matemáticas</a>
+                </div>
+            </div>
+            <div class="hero-illustration" aria-hidden="true">
+                <!-- Decorative SVG: friendly book + sparkles -->
+                <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.35" />
+                            <stop offset="100%" stop-color="#8affc1" stop-opacity="0.25" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="34" width="180" height="100" rx="12" ry="12" fill="url(#g1)" />
+                    <rect x="20" y="44" width="160" height="80" rx="8" ry="8" fill="#fff" opacity="0.9" />
+                    <path d="M28 62h144" stroke="#00c8d8" stroke-width="3" stroke-linecap="round" />
+                    <path d="M28 82h144" stroke="#bfffdc" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="210" cy="28" r="6" fill="#fff8a3" opacity="0.9" />
+                    <circle cx="200" cy="18" r="4" fill="#00f0ff" opacity="0.9" />
+                    <g transform="translate(18,10)" opacity="0.9">
+                        <rect x="0" y="0" width="30" height="18" rx="4" fill="#ffd" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="contenido-tema">
+
+            <div class="seccion" id="quimica">
+                <h2>Química</h2>
+                <p>Descripción: Este tema está diseñado para estudiantes universitarios que buscan comprender las bases
+                    teóricas y experimentales de la química avanzada y su aplicación a investigación y tecnología.</p>
+                <p>Contenido principal: termodinámica química (entalpía, entropía y energía libre), cinética (leyes de
+                    velocidad y factores que afectan la rapidez de reacción), técnicas instrumentales (principios
+                    básicos de espectroscopía UV-Vis e IR, cromatografía y análisis cuantitativo) y química orgánica con
+                    énfasis en mecanismos de reacción.</p>
+                <p>Ejercicio experimental (guía): diseñar un experimento para medir la constante de velocidad de una
+                    reacción simple, recopilando datos de concentración vs tiempo, graficar y obtener la ley de
+                    velocidad aproximada. Redactar un informe con introducción, metodología, resultados, análisis y
+                    conclusiones.</p>
+                <p>Actividades de profundización: interpretar espectros básicos, calcular energía de reacción usando
+                    valores tabulados de entalpías, y discutir consideraciones de seguridad y ética en el laboratorio.
+                </p>
+                <p>Recursos sugeridos: referencias a libros introductorios de química física y artículos de divulgación
+                    que expliquen técnicas analíticas.</p>
+            </div>
+
+            <div class="seccion" id="historia">
+                <h2>Historia</h2>
+                <p>Descripción: En este nivel se trabaja en la producción historiográfica: diseño de preguntas, revisión
+                    crítica de bibliografía y uso sistemático de fuentes primarias para construir argumentos académicos.
+                </p>
+                <p>Contenido principal: métodos de investigación histórica, marcos teóricos (estructuralismo, marxismo,
+                    poscolonialismo, entre otros), manejo de archivos y producción de ensayos académicos con citas
+                    formales.</p>
+                <p>Trabajo de investigación: desarrollar una pregunta de investigación, revisar bibliografía
+                    especializada, analizar fuentes primarias y secundarias y producir un ensayo de 8–12 páginas que
+                    presente una postura fundada y discuta contra-argumentos.</p>
+                <p>Evaluación: rúbrica que incluya calidad de fuentes, coherencia argumental, claridad metodológica y
+                    originalidad en la interpretación.</p>
+            </div>
+
+            <div class="seccion" id="tecnologia">
+                <h2>Tecnología</h2>
+                <p>Descripción: Aborda ingeniería de software, aprendizaje automático y arquitectura de sistemas, con
+                    énfasis en prácticas reproducibles y en la resolución de problemas complejos.</p>
+                <p>Contenido principal: algoritmos avanzados y estructuras de datos, fundamentos de aprendizaje
+                    automático (preprocesado, modelado, evaluación), arquitectura de sistemas y prácticas de DevOps
+                    básicas (CI/CD, pruebas automatizadas).</p>
+                <p>Proyecto guía: implementar un pipeline de ML simple: limpieza de datos, selección de características,
+                    entrenamiento de un modelo supervisado y evaluación; documentar resultados, limitaciones y sesgos
+                    potenciales.</p>
+                <p>Evaluación: entrega de código con pruebas, informe técnico y breve presentación que explique
+                    decisiones de diseño y métricas empleadas.</p>
+            </div>
+
+            <div class="seccion" id="matematicas">
+                <h2>Matemáticas</h2>
+                <p>Descripción: El tema ofrece herramientas para modelado y análisis matemático a nivel universitario,
+                    incluyendo álgebra lineal, análisis y estadística aplicada.</p>
+                <p>Contenido principal: espacios vectoriales y matrices (aplicaciones en sistemas y modelos), cálculo
+                    diferencial en una variable (conceptos de derivada y optimización), métodos numéricos básicos y
+                    estadística inferencial aplicada a conjuntos de datos reales.</p>
+                <p>Actividad práctica: formular un modelo matemático para un problema aplicado (por ejemplo, modelar la
+                    difusión de una sustancia o hacer una regresión multivariable sobre datos experimentales),
+                    resolverlo numéricamente y presentar resultados con discusión de supuestos y limitaciones.</p>
+                <p>Evaluación: informe técnico con desarrollo matemático, resultados numéricos y validación con datos.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 IAColmena</p>
+    </footer>
+
+    <button id="chatBotBtn" class="boton-interactivo">Tutor Generativo</button>
+    <button id="descargarPDF" class="boton-interactivo boton-descargar">Descargar PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="../Java/PQumica.js"></script>
+</body>
+
+</html>

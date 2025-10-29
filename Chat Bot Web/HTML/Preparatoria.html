@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparatoria - Temas</title>
+    <link rel="stylesheet" href="../CSS/PQuimica.css">
+    <style>
+        .boton-interactivo {
+            position: fixed;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+            z-index: 1000;
+        }
+
+        .boton-interactivo:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        #chatBotBtn {
+            bottom: 80px;
+            right: 20px;
+        }
+
+        #descargarPDF {
+            bottom: 80px;
+            left: 20px;
+        }
+
+        .seccion {
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+
+        /* Local header styles for hero section */
+        .page-hero {
+            padding: 32px 20px;
+            background: linear-gradient(180deg, rgba(0, 240, 255, 0.06), rgba(0, 0, 0, 0));
+            border-radius: 12px;
+            margin: 18px auto 24px;
+            max-width: 1100px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+
+        .hero-inner {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-left {
+            flex: 1 1 56%;
+        }
+
+        .nivel-pill {
+            display: inline-block;
+            background: rgba(138, 255, 193, 0.08);
+            color: var(--accent1, #00f0ff);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.86rem;
+            border: 1px solid rgba(0, 255, 255, 0.08);
+        }
+
+        .hero-lead {
+            margin-top: 10px;
+            color: rgba(0, 0, 0, 0.75);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-ctas {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Ensure hero CTAs move with the hero (override any fixed button rules) */
+        .page-hero .boton-interactivo {
+            position: relative !important;
+            right: auto !important;
+            bottom: auto !important;
+        }
+
+        .hero-ctas .boton-interactivo {
+            padding: 10px 14px;
+            font-size: 0.95rem;
+        }
+
+        .hero-illustration {
+            width: 220px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-illustration svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+        }
+
+        @media (max-width:880px) {
+            .hero-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-illustration {
+                width: 100%;
+                height: 160px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-illustration svg {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <script type="module">
+        // 1. Carga el script de Flowise
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+        // 2. Inicializa el chatbot en modo pop-up
+        Chatbot.init({
+            chatflowid: "3e8eb4e4-55e0-4a94-a000-fef79dc28410", // Asegúrese de que este sea SU ID de Chatflow
+            apiHost: "http://localhost:3000",
+            chatbotName: "Polen AI",                  // Asegúrese de que este sea SU URL de Flowise
+        })
+    </script>
+
+
+    <!-- Navegación superior -->
+    <nav class="site-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="Principal.html">Home</a></li>
+            <li><a href="Primaria.html">Nivel 1</a></li>
+            <li><a href="Secundaria.html">Nivel 2</a></li>
+            <li><a href="Preparatoria.html" class="active">Nivel 3</a></li>
+            <li><a href="Universidad.html">Nivel 4</a></li>
+        </ul>
+    </nav>
+    <header class="page-hero" aria-labelledby="preparatoria-title">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <span class="nivel-pill">Nivel 3 • Preparatoria</span>
+                <h1 id="preparatoria-title" class="titulo-tema">Nivel 3</h1>
+                <p class="hero-lead">Contenidos STEM orientados a la comprensión y aplicación de principios
+                    fundamentales de la ciencia, tecnología, ingeniería y matemáticas. El tutor generativo facilita el
+                    aprendizaje con explicaciones adaptadas al nivel del estudiante.</p>
+                <div class="hero-ctas">
+                    <a href="#quimica" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Química">Química</a>
+                    <a href="#historia" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Historia">Historia</a>
+                    <a href="#tecnologia" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Tecnología">Tecnología</a>
+                    <a href="#matematicas" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Matemáticas">Matemáticas</a>
+                </div>
+            </div>
+            <div class="hero-illustration" aria-hidden="true">
+                <!-- Decorative SVG: friendly book + sparkles -->
+                <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.35" />
+                            <stop offset="100%" stop-color="#8affc1" stop-opacity="0.25" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="34" width="180" height="100" rx="12" ry="12" fill="url(#g1)" />
+                    <rect x="20" y="44" width="160" height="80" rx="8" ry="8" fill="#fff" opacity="0.9" />
+                    <path d="M28 62h144" stroke="#00c8d8" stroke-width="3" stroke-linecap="round" />
+                    <path d="M28 82h144" stroke="#bfffdc" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="210" cy="28" r="6" fill="#fff8a3" opacity="0.9" />
+                    <circle cx="200" cy="18" r="4" fill="#00f0ff" opacity="0.9" />
+                    <g transform="translate(18,10)" opacity="0.9">
+                        <rect x="0" y="0" width="30" height="18" rx="4" fill="#ffd" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="contenido-tema">
+
+            <div class="seccion" id="quimica">
+                <h2>Química</h2>
+                <p>Descripción: En Preparatoria trabajamos con cantidades químicas y técnicas que permiten conectar la
+                    química con problemas reales y experimentación controlada. El objetivo es comprender relaciones
+                    cuantitativas entre reactivos y productos y documentar experimentos con rigor.</p>
+                <p>Contenido principal: estequiometría (moles, masas molares, reactivos limitantes), introducción a la
+                    química orgánica (funcionales comunes y nomenclatura básica), técnicas de laboratorio como la
+                    titulación ácido-base, y conceptos introductorios de métodos analíticos (cromatografía y
+                    espectrometría a nivel conceptual).</p>
+                <p>Práctica guiada: realizar una titulación con un indicador (demostración o práctica supervisada) para
+                    calcular la concentración de una solución desconocida. Registrar datos en una bitácora: volumen
+                    añadido, color de cambio y cálculo final de concentración.</p>
+                <p>Problemas de aplicación: ejercicios de estequiometría para calcular masa teórica y rendimiento
+                    práctico, y problemas de reactivo limitante con ejemplos numéricos.
+                <ol>
+                    <li>Calcular la masa de producto si se mezclan x gramos de A con y gramos de B, con una ecuación
+                        balanceada dada.</li>
+                    <li>Determinar el reactivo limitante en una reacción hipotética.</li>
+                </ol>
+                </p>
+                <p>Lecturas y extensión: artículos breves sobre técnicas analíticas y un mini-proyecto para extraer
+                    pigmentos y analizar separación en papel (cromatografía) con hipótesis y conclusiones.</p>
+            </div>
+
+            <div class="seccion" id="historia">
+                <h2>Historia</h2>
+                <p>Descripción: En este nivel los estudiantes realizan trabajos de investigación más formales, aprenden
+                    a contrastar fuentes y construyen argumentos históricos con evidencia.</p>
+                <p>Contenido principal: análisis de procesos históricos complejos (por ejemplo, industrialización,
+                    movimientos sociales), técnicas de historiografía y uso de bibliografía académica básica. Se
+                    introduce la comparación entre diferentes interpretaciones y la construcción de marcos teóricos.</p>
+                <p>Trabajo central: elaborar un trabajo de investigación corto (4–6 páginas) sobre un evento local o
+                    nacional, que incluya introducción, revisión de fuentes (primarias/ sec.), metodología breve,
+                    resultados y discusión.
+                <ol>
+                    <li>Formular una pregunta de investigación clara.</li>
+                    <li>Buscar y seleccionar al menos tres fuentes relevantes.</li>
+                    <li>Redactar un informe con referencias y una conclusión que responda la pregunta.</li>
+                </ol>
+                </p>
+                <p>Evaluación: rubrica que valore claridad de la pregunta, uso de fuentes, argumentación y presentación.
+                </p>
+            </div>
+
+            <div class="seccion" id="tecnologia">
+                <h2>Tecnología</h2>
+                <p>Descripción: Consolidamos habilidades en programación textual y elaboración de prototipos funcionales
+                    que integren hardware y software con documentación técnica.</p>
+                <p>Contenido principal: estructuras de programación (funciones, arreglos, manejo de errores), control de
+                    versiones básico (git), y diseño de sistemas con microcontroladores. También se incluyen buenas
+                    prácticas de pruebas y documentación.</p>
+                <p>Proyecto de curso: construir un prototipo funcional (por ejemplo, un sistema de riego automatizado
+                    con sensor de humedad) que incluya:
+                <ol>
+                    <li>Diseño esquemático y lista de materiales.</li>
+                    <li>Programa que lea el sensor y active una bomba o aviso.</li>
+                    <li>Documento técnico breve que explique el diseño, código y pruebas realizadas.</li>
+                </ol>
+                </p>
+                <p>Evaluación: prueba práctica del prototipo y entrega de la documentación técnica con comentarios de
+                    código y reflexiones sobre mejoras posibles.</p>
+            </div>
+
+            <div class="seccion" id="matematicas">
+                <h2>Matemáticas</h2>
+                <p>Descripción: Este tema prepara para estudios superiores con énfasis en funciones, trigonometría y
+                    conceptos introductorios de cálculo y estadística aplicados a problemas reales.</p>
+                <p>Contenido principal: estudio de funciones (polinomios y racionales), trigonometría aplicada
+                    (identidades y resolución de triángulos), límites conceptuales y análisis de datos con medidas de
+                    tendencia y dispersión.</p>
+                <p>Actividades y problemas: resolver problemas de optimización sencillos, practicar identidades
+                    trigonométricas en ejercicios aplicados y realizar análisis estadístico de un conjunto de datos
+                    recogidos en la escuela.
+                <ol>
+                    <li>Formular y resolver una ecuación que modele un problema práctico.</li>
+                    <li>Calcular media, mediana y desviación estándar de una muestra pequeña y comentar resultados.</li>
+                </ol>
+                </p>
+                <p>Evaluación: examen corto con problemas aplicados, y entrega de un informe de análisis de datos con
+                    gráficos y conclusiones.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 IAColmena</p>
+    </footer>
+
+    <button id="chatBotBtn" class="boton-interactivo">Tutor Generativo</button>
+    <button id="descargarPDF" class="boton-interactivo boton-descargar">Descargar PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="../Java/PQumica.js"></script>
+</body>
+
+</html>

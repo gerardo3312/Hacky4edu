@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primaria - Temas</title>
+    <link rel="stylesheet" href="../CSS/PQuimica.css">
+    <style>
+        .boton-interactivo {
+            position: fixed;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+            z-index: 1000;
+        }
+
+        .boton-interactivo:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        #chatBotBtn {
+            bottom: 80px;
+            right: 20px;
+        }
+
+        #descargarPDF {
+            bottom: 80px;
+            left: 20px;
+        }
+
+        .seccion {
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+
+        /* Local header styles for Primaria (additive, page-scoped) */
+        .page-hero {
+            padding: 32px 20px;
+            background: linear-gradient(180deg, rgba(0, 240, 255, 0.06), rgba(0, 0, 0, 0));
+            border-radius: 12px;
+            margin: 18px auto 24px;
+            max-width: 1100px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+
+        .hero-inner {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-left {
+            flex: 1 1 56%;
+        }
+
+        .nivel-pill {
+            display: inline-block;
+            background: rgba(138, 255, 193, 0.08);
+            color: var(--accent1, #00f0ff);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.86rem;
+            border: 1px solid rgba(0, 255, 255, 0.08);
+        }
+
+        .hero-lead {
+            margin-top: 10px;
+            color: rgba(0, 0, 0, 0.75);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-ctas {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Ensure hero CTAs move with the hero (override any fixed button rules) */
+        .page-hero .boton-interactivo {
+            position: relative !important;
+            right: auto !important;
+            bottom: auto !important;
+        }
+
+        .hero-ctas .boton-interactivo {
+            padding: 10px 14px;
+            font-size: 0.95rem;
+        }
+
+        .hero-illustration {
+            width: 220px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-illustration svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+        }
+
+        @media (max-width:880px) {
+            .hero-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-illustration {
+                width: 100%;
+                height: 160px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-illustration svg {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script type="module">
+        // 1. Carga el script de Flowise
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+        // 2. Inicializa el chatbot en modo pop-up
+        Chatbot.init({
+            chatflowid: "3e8eb4e4-55e0-4a94-a000-fef79dc28410", // Asegúrese de que este sea SU ID de Chatflow
+            apiHost: "http://localhost:3000",
+            chatbotName: "Polen AI",                   // Asegúrese de que este sea SU URL de Flowise
+        })
+    </script>
+
+
+
+
+    <!-- Navegación superior -->
+    <nav class="site-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="Principal.html">Home</a></li>
+            <li><a href="Primaria.html" class="active">Nivel 1</a></li>
+            <li><a href="Secundaria.html">Nivel 2</a></li>
+            <li><a href="Preparatoria.html">Nivel 3</a></li>
+            <li><a href="Universidad.html">Nivel 4</a></li>
+        </ul>
+    </nav>
+    <header class="page-hero" aria-labelledby="primaria-title">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <span class="nivel-pill">Nivel 1• Primaria</span>
+                <h1 id="primaria-title" class="titulo-tema">Primaria</h1>
+                <p class="hero-lead">Materiales de nivel 1 basados en temas STEM, diseñados para despertar la
+                    curiosidad mediante explicaciones claras. Incluyen el
+                    apoyo de un tutor generativo que guía el aprendizaje de forma interactiva y personalizada.</p>
+                <div class="hero-ctas">
+                    <a href="#quimica" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Química">Química</a>
+                    <a href="#historia" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Historia">Historia</a>
+                    <a href="#tecnologia" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Tecnología">Tecnología</a>
+                    <a href="#matematicas" class="boton-interactivo hero-cta-btn" role="button"
+                        aria-label="Comenzar por Matemáticas">Matemáticas</a>
+                </div>
+            </div>
+            <div class="hero-illustration" aria-hidden="true">
+                <!-- Decorative SVG: friendly book + sparkles -->
+                <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.35" />
+                            <stop offset="100%" stop-color="#8affc1" stop-opacity="0.25" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="34" width="180" height="100" rx="12" ry="12" fill="url(#g1)" />
+                    <rect x="20" y="44" width="160" height="80" rx="8" ry="8" fill="#fff" opacity="0.9" />
+                    <path d="M28 62h144" stroke="#00c8d8" stroke-width="3" stroke-linecap="round" />
+                    <path d="M28 82h144" stroke="#bfffdc" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="210" cy="28" r="6" fill="#fff8a3" opacity="0.9" />
+                    <circle cx="200" cy="18" r="4" fill="#00f0ff" opacity="0.9" />
+                    <g transform="translate(18,10)" opacity="0.9">
+                        <rect x="0" y="0" width="30" height="18" rx="4" fill="#ffd" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="contenido-tema">
+
+            <div class="seccion" id="quimica">
+                <h2>Química</h2>
+                <p>Descripción general: En este tema se introduce a los alumnos a la química a través de fenómenos
+                    cotidianos. Se pretende que comprendan qué son las sustancias y las mezclas, cómo se comportan en
+                    distintas condiciones y cómo hacer observaciones seguras y anotarlas.</p>
+                <p>Contenido principal: definiciones de materia, estados (sólido, líquido, gas), propiedades observables
+                    (color, olor, textura), solubilidad y ejemplos prácticos con agua, sal y azúcar. Se explica la
+                    diferencia entre mezcla homogénea y heterogénea y se muestra cómo separar componentes mediante
+                    filtración simple, decantación y evaporación.</p>
+                <p>Experimento guiado (paso a paso):
+                <ol>
+                    <li>Preparar tres vasos con agua: uno con sal, otro con azúcar y otro puro.</li>
+                    <li>Observar y registrar cuánto tiempo tarda cada sustancia en disolverse, usando una cuchara para
+                        revolver de forma consistente.</li>
+                    <li>Colocar una mezcla de arena y agua en un filtro de papel para observar la filtración. Dejar una
+                        solución salina abierta para que se evapore y formarse cristales lentamente.</li>
+                </ol>
+                </p>
+                <p>Actividades de ampliación: dibujar las observaciones, crear una hoja de registro (tabla con cantidad,
+                    tiempo y temperatura), y discutir por qué algunos solutos se disuelven mejor que otros.</p>
+                <p>Preguntas de reflexión y evaluación: ¿qué diferencias viste entre los vasos? ¿por qué crees que la
+                    sal o el azúcar se comportaron distinto? Diseña una pequeña prueba para comprobar si una bebida es
+                    agua con sal o agua con azúcar.</p>
+                <p>Sugerencias para la familia/maestro: supervisar los experimentos, conectar las observaciones con la
+                    cocina (por ejemplo, disolución en sopas) y fomentar la curiosidad al preguntar "¿qué pasaría
+                    si...?".</p>
+            </div>
+
+            <div class="seccion" id="historia">
+                <h2>Historia</h2>
+                <p>Descripción general: Este tema ayuda a los niños a explorar su pasado inmediato —la familia, la
+                    escuela y la comunidad— para construir una comprensión básica de tiempo y cambio.</p>
+                <p>Contenido principal: qué es la historia, cómo se organiza el pasado en líneas de tiempo,
+                    identificación de eventos significativos (fiestas, fundación de la escuela, cambios en el barrio) y
+                    la importancia de las fuentes (fotos, relatos, objetos).</p>
+                <p>Actividad principal (proyecto de clase): crear una línea de tiempo colectiva de la escuela.
+                <ol>
+                    <li>Recoger fotos, fechas y relatos de compañeros y familiares.</li>
+                    <li>Organizar los eventos en cartulinas, con dibujos y descripciones cortas.</li>
+                    <li>Presentar la línea de tiempo en clase y explicar por qué cada evento es importante.</li>
+                </ol>
+                </p>
+                <p>Tareas de profundización: escribir una breve biografía ilustrada de un personaje local o familiar, y
+                    practicar preguntas de investigación simples: ¿qué pasó antes? ¿qué ocurrió después? ¿qué cambió y
+                    por qué?</p>
+                <p>Evaluación y reflexión: comparar dos relatos de un mismo evento (ej. una fiesta escolar) y discutir
+                    similitudes y diferencias; esto introduce la idea de que las fuentes pueden contar distintas
+                    versiones.</p>
+            </div>
+
+            <div class="seccion" id="tecnologia">
+                <h2>Tecnología</h2>
+                <p>Descripción general: Presenta las herramientas digitales básicas y proyectos creativos que permiten a
+                    los niños experimentar con la tecnología de forma segura.</p>
+                <p>Contenido principal: normas de uso de dispositivos, introducción a aplicaciones de dibujo y creación
+                    (pizarra digital o apps infantiles), principios básicos de programación por bloques (secuencia,
+                    repetición y eventos).</p>
+                <p>Proyecto sugerido: "Mi cuento interactivo" — usar una app de bloques (ej. ScratchJr) para crear una
+                    historia con personajes que se mueven y hablan.
+                <ol>
+                    <li>Planear la historia: inicio, nudo y final en un guion de 4-5 cuadros.</li>
+                    <li>Crear personajes y escenas en la app.</li>
+                    <li>Programar movimientos simples y transiciones entre escenas.</li>
+                </ol>
+                </p>
+                <p>Actividades complementarias: construir un juguete con materiales reciclados y describir sus funciones
+                    (entrada, proceso, salida), o crear un póster que explique buenas prácticas en Internet para su
+                    edad.</p>
+            </div>
+
+            <div class="seccion" id="matematicas">
+                <h2>Matemáticas</h2>
+                <p>Descripción general: Desarrollo del sentido numérico y las operaciones básicas mediante juegos,
+                    problemas y actividades prácticas relacionadas con el entorno del niño.</p>
+                <p>Contenido principal: suma y resta con estrategias, introducción a la multiplicación como suma
+                    repetida, reconocimiento de figuras geométricas, medidas básicas y resolución de problemas
+                    concretos.</p>
+                <p>Actividad práctica: "Tienda en clase" — organizar una actividad de compra-venta con fichas o monedas
+                    de juego para practicar cambio, conteo y operaciones básicas.
+                <ol>
+                    <li>Cada alumno recibe fichas con valor y una lista de productos con precios.</li>
+                    <li>Realizar compras y calcular el cambio.</li>
+                    <li>Registrar operaciones y convertir la actividad en un pequeño problema escrito.</li>
+                </ol>
+                </p>
+                <p>Tareas de evaluación: problemas cortos para resolver en equipo, ejercicios de medición en el aula y
+                    actividades de clasificación para trabajar conjuntos y relaciones.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 IAColmena</p>
+    </footer>
+
+    <button id="chatBotBtn" class="boton-interactivo">Tutor Generativo</button>
+    <button id="descargarPDF" class="boton-interactivo boton-descargar">Descargar PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="../Java/PQumica.js"></script>
+</body>
+
+</html>

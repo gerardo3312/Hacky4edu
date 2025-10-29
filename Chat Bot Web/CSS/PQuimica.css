@@ -1,0 +1,293 @@
+body {
+    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    color: #000000;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0,255,255,0.1);
+    border-bottom: 2px solid cyan;
+}
+
+/* Barra de navegación superior (visible en páginas de nivel) */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+   border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px 20px;
+}
+.site-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: background 0.18s ease, transform 0.12s ease, color 0.18s ease;
+}
+.site-nav a:hover {
+    background: rgba(255,255,255,0.95);
+    color: #05282f;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+.site-nav a.active {
+    background: rgba(255,255,255,0.95);
+    color: #05282f;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Chat popup styles */
+.chat-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1500;
+    width: 320px;
+    max-width: calc(100% - 40px);
+    transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.chat-popup.hidden { opacity: 0; transform: translateY(8px) scale(0.98); pointer-events: none; }
+.chat-window {
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), #ffffff);
+    color: #05282f;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(4,22,26,0.45);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+}
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    background: linear-gradient(90deg, #00d4ff, #00ffa3);
+    color: #05282f;
+    font-weight: 800;
+}
+.chat-close {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: rgba(5,40,47,0.9);
+}
+.chat-messages {
+    padding: 12px;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: linear-gradient(180deg, rgba(250,250,250,0.9), rgba(245,245,245,0.95));
+}
+.chat-msg { padding: 8px 12px; border-radius: 12px; max-width: 85%; line-height: 1.3; }
+.chat-user { align-self: flex-end; background: #05282f; color: #fff; }
+.chat-bot { align-self: flex-start; background: #e6f7ff; color: #05282f; }
+.chat-input-area { display: flex; gap: 8px; padding: 10px; border-top: 1px solid rgba(0,0,0,0.06); background: #fff; }
+.chat-input { flex: 1 1 auto; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(5,40,47,0.08); font-size: 0.95em; }
+.chat-send-btn { background: #00bfa5; color: #05282f; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight: 700; }
+.chat-send-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+
+.titulo-tema {
+    font-size: 2.5em;
+    color: cyan;
+    margin-left: auto; /* Mueve el título al centro */
+    margin-right: auto;
+}
+
+.nivel-educativo {
+    font-size: 1.2em;
+    color: #aeefff;
+}
+
+.contenido-tema {
+    background: rgba(0,0,0,0.5);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 0 20px cyan;
+}
+
+.contenido-tema img {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+/* --- ESTILO UNIFICADO DE BOTONES (DESCARGA Y CHAT BOT) --- */
+.boton-interactivo {
+    padding: 12px 25px;
+    background: cyan;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+}
+
+/* El botón de descarga ahora usa el estilo unificado */
+.boton-descargar {
+    display: block; /* Para que quede centrado debajo del contenido */
+    margin: 20px auto;
+}
+
+.boton-interactivo:hover {
+    background: #00ffffaa;
+    box-shadow: 0 0 10px #00ffff;
+}
+/* ----------------------------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #aeefff;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+
+/* ----------------------------------------------------------- */
+/* --- REGLAS EXCLUSIVAS PARA IMPRESIÓN/PDF (@media print) --- */
+/* ----------------------------------------------------------- */
+
+@media print {
+    /* Limpieza de colores y fondos */
+    body, html, .contenido-tema, header {
+        background: none !important;
+        background-color: white !important; 
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* Fuerza texto negro y fuente segura */
+    body, .contenido-tema, .titulo-tema, .nivel-educativo, p, li, h1, h2, h3 {
+        color: black !important; 
+        font-family: Arial, sans-serif !important; 
+    }
+
+    /* Ajuste de dimensiones */
+    .contenido-tema {
+        max-width: 100% !important; 
+        width: 190mm !important; 
+        margin: 10mm auto !important; 
+        padding: 0 !important;
+    }
+
+    .contenido-tema img {
+        max-width: 100% !important; 
+    }
+    
+    /* Ocultar elementos de página */
+    .boton-interactivo, footer { /* Oculta ambos botones */
+        display: none !important;
+    }
+
+    /* Ocultar navegación en impresión */
+    .site-nav {
+        display: none !important;
+    }
+}.boton-interactivo {
+            position: fixed;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: 0.3s ease;
+            z-index: 1000;
+        }
+
+        .boton-interactivo:hover {
+            background-color: #0056b3;
+        }
+
+        #chatBotBtn {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #descargarPDF {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .seccion {
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+
+        /* --- Additive visual improvements (non-intrusive) --- */
+        :root{
+            --accent1: #00f0ff;
+            --accent2: #8affc1;
+        }
+
+        /* subtle section entrance */
+        .seccion{ opacity: 0; transform: translateY(8px); animation: pq-section-in 520ms ease forwards; }
+        @keyframes pq-section-in{ to { opacity: 1; transform: translateY(0); } }
+
+        /* gentle hover for botón interactivo inside these pages */
+        .boton-interactivo{ transition: transform 220ms ease, box-shadow 220ms ease; }
+        .boton-interactivo:hover{ transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+
+        @media (prefers-reduced-motion: reduce){
+            .seccion, .boton-interactivo { animation: none !important; transition: none !important; }
+        }
+
+        /* Badge: Tutor generativo (fixed, sits above chat button) */
+        .tutor-badge{
+            position: fixed;
+            right: 24px; /* aligns with chat button */
+            bottom: 86px; /* above typical chat button at 20px + button height */
+            z-index: 1600;
+            background: linear-gradient(90deg, rgba(0,240,255,0.12), rgba(138,255,193,0.08));
+            color: #e6ffff;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.35), 0 2px 6px rgba(0,240,255,0.06);
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.92em;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: transform 220ms cubic-bezier(.22,.9,.35,1), box-shadow 220ms ease, opacity 200ms ease;
+        }
+        .tutor-badge:hover{ transform: translateY(-6px) scale(1.02); box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
+        .tutor-badge:active{ transform: translateY(-2px) scale(0.99); }
+
+        @media (max-width:640px){
+            .tutor-badge{ right: 14px; bottom: 86px; padding: 7px 10px; font-size: 0.86em; }
+        }
+
+        @media (prefers-reduced-motion: reduce){ .tutor-badge{ transition: none !important; } }
