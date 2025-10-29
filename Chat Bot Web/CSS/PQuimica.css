@@ -1,0 +1,120 @@
+/* Archivo: ../CSS/PQuimica.css (Diseño Web + Reglas de Impresión) */
+
+/* DISEÑO WEB FUTURISTA */
+body {
+    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0,255,255,0.1);
+    border-bottom: 2px solid cyan;
+}
+
+.titulo-tema {
+    font-size: 2.5em;
+    color: cyan;
+    margin-left: auto; /* Mueve el título al centro */
+    margin-right: auto;
+}
+
+.nivel-educativo {
+    font-size: 1.2em;
+    color: #aeefff;
+}
+
+.contenido-tema {
+    background: rgba(0,0,0,0.5);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 0 20px cyan;
+}
+
+.contenido-tema img {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+/* --- ESTILO UNIFICADO DE BOTONES (DESCARGA Y CHAT BOT) --- */
+.boton-interactivo {
+    padding: 12px 25px;
+    background: cyan;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+}
+
+/* El botón de descarga ahora usa el estilo unificado */
+.boton-descargar {
+    display: block; /* Para que quede centrado debajo del contenido */
+    margin: 20px auto;
+}
+
+.boton-interactivo:hover {
+    background: #00ffffaa;
+    box-shadow: 0 0 10px #00ffff;
+}
+/* ----------------------------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #aeefff;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+
+/* ----------------------------------------------------------- */
+/* --- REGLAS EXCLUSIVAS PARA IMPRESIÓN/PDF (@media print) --- */
+/* ----------------------------------------------------------- */
+
+@media print {
+    /* Limpieza de colores y fondos */
+    body, html, .contenido-tema, header {
+        background: none !important;
+        background-color: white !important; 
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* Fuerza texto negro y fuente segura */
+    body, .contenido-tema, .titulo-tema, .nivel-educativo, p, li, h1, h2, h3 {
+        color: black !important; 
+        font-family: Arial, sans-serif !important; 
+    }
+
+    /* Ajuste de dimensiones */
+    .contenido-tema {
+        max-width: 100% !important; 
+        width: 190mm !important; 
+        margin: 10mm auto !important; 
+        padding: 0 !important;
+    }
+
+    .contenido-tema img {
+        max-width: 100% !important; 
+    }
+    
+    /* Ocultar elementos de página */
+    .boton-interactivo, footer { /* Oculta ambos botones */
+        display: none !important;
+    }
+}
