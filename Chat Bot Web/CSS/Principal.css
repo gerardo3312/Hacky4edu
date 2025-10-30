@@ -375,6 +375,9 @@ body::after{
     font-weight: 700;
     font-size: 1.25rem;
     color: inherit; /* seguir color del body (contraste) */
+    /* Añadimos posicionamiento para que pueda estar sobre el asistente */
+    position: relative;
+    z-index: 1;
 }
 
 /* Sweep (barrido) horizontal para el asistente/abeja
@@ -396,7 +399,7 @@ body::after{
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    z-index: 9999; /* encima de la mayoría de elementos pero debajo de modales */
+    z-index: 0; /* Detrás de elementos con z-index > 0, como .choose-level */
     pointer-events: auto; /* permitir clicks/hover */
 }
 
