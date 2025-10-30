@@ -45,7 +45,7 @@
         /* Local header styles for Primaria (additive, page-scoped) */
         .page-hero {
             padding: 32px 20px;
-            background: linear-gradient(180deg, rgba(0, 240, 255, 0.06), rgba(0, 0, 0, 0));
+            background: linear-gradient(180deg, rgba(122,45,179,0.06), rgba(0, 0, 0, 0));
             border-radius: 12px;
             margin: 18px auto 24px;
             max-width: 1100px;
@@ -65,13 +65,13 @@
 
         .nivel-pill {
             display: inline-block;
-            background: rgba(138, 255, 193, 0.08);
-            color: var(--accent1, #00f0ff);
+            background: rgba(224,58,140,0.06);
+            color: var(--accent1, #7A2DB3);
             padding: 6px 10px;
             border-radius: 999px;
             font-weight: 800;
             font-size: 0.86rem;
-            border: 1px solid rgba(0, 255, 255, 0.08);
+            border: 1px solid rgba(122,45,179,0.06);
         }
 
         .hero-lead {
@@ -166,9 +166,11 @@
             <li><a href="Universidad.html">Nivel 4</a></li>
         </ul>
     </nav>
+    <!-- Hero local de la página Primaria: presenta el nivel y CTAs hacia los temas -->
     <header class="page-hero" aria-labelledby="primaria-title">
         <div class="hero-inner">
             <div class="hero-left">
+                <!-- 'nivel-pill' es una etiqueta visual para indicar el nivel actual -->
                 <span class="nivel-pill">Nivel 1• Primaria</span>
                 <h1 id="primaria-title" class="titulo-tema">Primaria</h1>
                 <p class="hero-lead">Materiales de nivel 1 basados en temas STEM, diseñados para despertar la
@@ -190,16 +192,16 @@
                 <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
                     <defs>
                         <linearGradient id="g1" x1="0" x2="1">
-                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.35" />
-                            <stop offset="100%" stop-color="#8affc1" stop-opacity="0.25" />
+                            <stop offset="0%" stop-color="#7A2DB3" stop-opacity="0.35" />
+                            <stop offset="100%" stop-color="#E03A8C" stop-opacity="0.25" />
                         </linearGradient>
                     </defs>
                     <rect x="10" y="34" width="180" height="100" rx="12" ry="12" fill="url(#g1)" />
                     <rect x="20" y="44" width="160" height="80" rx="8" ry="8" fill="#fff" opacity="0.9" />
-                    <path d="M28 62h144" stroke="#00c8d8" stroke-width="3" stroke-linecap="round" />
-                    <path d="M28 82h144" stroke="#bfffdc" stroke-width="3" stroke-linecap="round" />
+                    <path d="M28 62h144" stroke="#9f6ed6" stroke-width="3" stroke-linecap="round" />
+                    <path d="M28 82h144" stroke="#f2c5e0" stroke-width="3" stroke-linecap="round" />
                     <circle cx="210" cy="28" r="6" fill="#fff8a3" opacity="0.9" />
-                    <circle cx="200" cy="18" r="4" fill="#00f0ff" opacity="0.9" />
+                    <circle cx="200" cy="18" r="4" fill="#7A2DB3" opacity="0.9" />
                     <g transform="translate(18,10)" opacity="0.9">
                         <rect x="0" y="0" width="30" height="18" rx="4" fill="#ffd" />
                     </g>
