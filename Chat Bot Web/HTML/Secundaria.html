@@ -143,15 +143,29 @@
 
 
     <script type="module">
-        // 1. Carga el script de Flowise
-        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+          import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
 
-        // 2. Inicializa el chatbot en modo pop-up
-        Chatbot.init({
-            chatflowid: "3e8eb4e4-55e0-4a94-a000-fef79dc28410", // Asegúrese de que este sea SU ID de Chatflow
-            apiHost: "http://localhost:3000",
-            chatbotName: "Polen AI",                   // Asegúrese de que este sea SU URL de Flowise
-        })
+    Chatbot.init({
+        chatflowid: "2ea09844-1987-42f0-b8a0-78d2d5d1a875",
+        apiHost: "http://localhost:3000",
+        chatbotName: "Pollen Jocks",
+        theme: {
+            chatWindow: {
+                welcomeMessage: "¡Hola! Soy Pollen Jocks 🌼 ¿En qué puedo ayudarte?",
+                backgroundColor: "#ffffff",
+                fontSize: "16px",
+                poweredByTextColor: "#999999",
+            },
+            button: {
+                icon: "C:\Users\nasa1\Downloads\WhatsApp Image.jpeg", // <-- usa iconUrl, no "icon"
+                backgroundColor: "#fbbf24",
+                right: 30,
+                bottom: 30,
+                size: 60,
+                borderRadius: 50, // lo hace circular
+            },
+        },
+    })
     </script>
 
 
