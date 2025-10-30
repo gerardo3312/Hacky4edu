@@ -1,0 +1,19 @@
+/* Estilos para las imágenes de UMB y Hack4Edu */
+.header-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los logos */
+}
+
+.header-logos img {
+    height: 80px; /* Altura uniforme para los logos */
+    width: auto; /* Ancho automático para mantener la proporción */
+    border-radius: 10px; /* Bordes redondeados para un look moderno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease; /* Animación suave al pasar el mouse */
+}
+
+.header-logos img:hover {
+    transform: scale(1.1); /* Agrandar un poco al pasar el mouse */
+}
