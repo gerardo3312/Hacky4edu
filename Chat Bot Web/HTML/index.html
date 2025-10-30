@@ -5,6 +5,7 @@
     Comentarios añadidos para explicar la estructura y dónde encontrar estilos/JS.
 -->
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,19 @@
     <!-- Añadir nuevas fuentes de Google Fonts para un estilo más infantil -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Fredoka+One&family=Orbitron:wght@800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Fredoka+One&family=Orbitron:wght@800;900&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="../CSS/Principal.css">
     <link rel="stylesheet" href="../CSS/Imagenes.css">
 </head>
+
 <body class="secundaria">
-            <!-- Asistente flotante: elemento que se mueve por la ventana y sirve como entrada
+    <!-- Asistente flotante: elemento que se mueve por la ventana y sirve como entrada
                      visual para el tutor generativo. Su comportamiento está definido en
                      ../Java/Principal.js -->
-            <div id="asistente">
+    <div id="asistente">
         <img src="../Imagenes/Mascota IA.png" alt="Asistente virtual" class="imagen-bot">
     </div>
     <div class="overlay"></div>
@@ -33,7 +37,7 @@
             <h1>IA Colmena</h1>
             <img src="../Imagenes/HACK4EDU.webp" alt="Logo Hack4Edu">
         </div>
-        <p class="slogan">Donde la conectividad es un lujo, la IA se convierte en un derecho.</p>
+        <p class="slogan">"Donde la conectividad es un lujo, la IA se convierte en un derecho"</p>
     </header>
 
     <main>
@@ -41,35 +45,38 @@
             <div class="info-card">
                 <h2>¿Qué ofrece IA Colmena?</h2>
                 <p>
-                    La página web IAColmena es un tutor educativo basado en inteligencia artificial generativa para el aprendizaje STEM desde primaria hasta universidad. 
-                    Un recuadro informativo explica los servicios: contenidos, ejercicios, simuladores y tutor virtual.
-                    Cuatro secciones desplegables (Primaria, Secundaria, Preparatoria y Universidad) permiten acceder a materias específicas, redirigiendo a páginas con contenido interactivo.
+                    La página web IAColmena es un tutor educativo orientado al aprendizaje STEM (Ciencia, Tecnología,
+                    Ingeniería y Matemáticas) para niños.
+                    Cuenta con un chat interactivo llamado Pollen Jocks, que ofrece información y orientación sobre
+                    temas científicos, tecnológicos, de ingeniería y matemáticas de manera divertida y comprensible.
+                    Además, presenta un recuadro informativo que explica sus servicios: contenidos didácticos,
+                    ejercicios prácticos, simuladores y acompañamiento del tutor virtual.
                 </p>
             </div>
         </section>
 
-           <!-- Título para la selección de nivel -->
-           <h3 class="choose-level">¿Que quieres aprender?</h3>
+        <!-- Título para la selección de nivel -->
+        <h3 class="choose-level">¿Que quieres aprender?</h3>
 
-           <!-- Sección de vista previa: tarjetas con imágenes alusivas a cada nivel -->
-           <section class="preview-row">
-                <div class="preview-card">
-                    <img src="../Imagenes/Ciencia.jpeg" alt="Ciencia" />
-                </div>
-                <div class="preview-card">
-                    <img src="../Imagenes/Tecnologia.jpg" alt="Tecnologia" />
-                </div>
-                <div class="preview-card">
-                    <img src="../Imagenes/Ingieneria.jpg" alt="Ingenieria" />
-                </div>
-                <div class="preview-card">
-                    <img src="../Imagenes/Matematicas.jpg" alt="Matematicas" />
-                </div>
-           </section>
+        <!-- Sección de vista previa: tarjetas con imágenes alusivas a cada nivel -->
+        <section class="preview-row">
+            <div class="preview-card">
+                <img src="../Imagenes/Ciencia.jpeg" alt="Ciencia" />
+            </div>
+            <div class="preview-card">
+                <img src="../Imagenes/Tecnologia.jpg" alt="Tecnologia" />
+            </div>
+            <div class="preview-card">
+                <img src="../Imagenes/Ingieneria.jpg" alt="Ingenieria" />
+            </div>
+            <div class="preview-card">
+                <img src="../Imagenes/Matematicas.jpg" alt="Matematicas" />
+            </div>
+        </section>
 
-           <!-- Sección de selección de nivel educativo: botones que llevan a páginas
+        <!-- Sección de selección de nivel educativo: botones que llevan a páginas
            específicas para cada etapa (Primaria, Secundaria, Preparatoria, Universidad) -->
-       <section class="levels">
+        <section class="levels">
             <div class="level">
                 <!-- Enlace directo a la página de Primaria -->
                 <a class="level-link" href="Primaria.html">Ciencia</a>
@@ -98,4 +105,5 @@
     <script src="../Java/Principal.js"></script>
 
 </body>
+
 </html>
