@@ -135,6 +135,39 @@
                 animation: none !important;
             }
         }
+.seccion1 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .tooltip {
+    visibility: hidden;
+    width: 300px;
+    background-color: #333;
+    color: #ffffff;  
+    /* prueba */
+    text-align: left;
+    padding: 10px; 
+    border-radius: 5px;
+    position: absolute;
+    top: 120%; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .seccion1:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
     </style>
 </head>
 
@@ -223,8 +256,10 @@
 
     <main>
         <div class="contenido-tema">
-
-            <div class="seccion" id="quimica">
+            <div class="seccion1" id="quimica">
+            <div class="tooltip">
+            Ejemplo de pregunta de pregunta que le puedes hacer a tu asistente: "¿Cómo vivían los niños en el antiguo Egipto, Grecia o Roma?"
+            </div>
                 <h2>Química</h2>
                 <p>Descripción: En Preparatoria trabajamos con cantidades químicas y técnicas que permiten conectar la
                     química con problemas reales y experimentación controlada. El objetivo es comprender relaciones
