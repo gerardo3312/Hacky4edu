@@ -1,32 +1,3 @@
-// Efecto de despliegue para los botones
-// -- Explicación: este bloque añade un listener a cada botón con la clase
-//    "dropdown-btn" para mostrar/ocultar su contenido hermano (nextElementSibling)
-//    usando display:flex o display:none. Es una forma sencilla de crear
-//    paneles desplegables sin dependencias externas.
-document.querySelectorAll(".dropdown-btn").forEach(button => {
-    button.addEventListener("click", () => {
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === "flex" ? "none" : "flex";
-    });
-});
-
-// Ensure tutor badge stays fixed relative to the viewport: move it to body (for Principal page)
-// -- Explicación: algunos badges/tokens pueden estar dentro de contenedores que se mueven.
-//    Aquí forzamos que el elemento con clase .tutor-badge viva directamente en document.body
-//    y le aplicamos estilos inline para mantenerlo fijo y siempre accesible.
-function ensureBadgeFixedPrincipal() {
-  document.querySelectorAll('.tutor-badge').forEach(b => {
-    if (b.parentElement !== document.body) document.body.appendChild(b);
-    b.style.position = 'fixed';
-    b.style.right = b.style.right || '24px';
-    b.style.bottom = b.style.bottom || '86px';
-    b.style.zIndex = '1600';
-    b.style.pointerEvents = 'auto';
-  });
-}
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBadgeFixedPrincipal);
-else ensureBadgeFixedPrincipal();
-
 // Animación de luces de fondo suave
 // -- Explicación: al mover el ratón actualizamos el fondo de la capa ".overlay"
 //    para crear un foco radial que sigue el cursor. El color usado ahora
@@ -271,4 +242,3 @@ function startHorizontalSweep() {
 // Iniciamos el barrido automáticamente en la página principal
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', startHorizontalSweep);
 else startHorizontalSweep();
-

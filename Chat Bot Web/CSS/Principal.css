@@ -1,23 +1,29 @@
-/* Estilo general futurista */
 /*
     Comentarios generales: este archivo contiene los estilos principales para la
-    página "Principal.html" y páginas relacionadas. He añadido comentarios en
-    secciones clave para explicar el propósito de cada bloque y las variables
-    de color (paleta morado/magenta) definidas en :root.
+    página "Principal.html". Se ha reorganizado para mejorar la legibilidad y
+    se ha eliminado el código no utilizado.
 */
+
+/* ==========================
+   1. Variables y Reseteo Global
+   ========================== */
+:root{
+    /* Paleta Hack4Edu (variables principales) */
+    --color-primario: #7A2DB3;    /* morado/púrpura brillante */
+    --color-secundario: #E03A8C;  /* fucsia / magenta */
+    --color-text-dark: #222222;   /* texto principal (casi negro) */
+    --color-white: #FFFFFF;       /* blanco puro */
+    --card-radius: 14px;
+
+    /* Alias para compatibilidad (nombres previos) */
+    --accent1: var(--color-primario);
+    --accent2: var(--color-secundario);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif;
-}
-
-body {
-    /* Fondo principal con degradado vertical de morado más intenso a morado claro */
-    background: linear-gradient(180deg, #4A148C 0%, #9C27B0 100%);
-    color: var(--white, #FFFFFF);
-    min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* ==========================
@@ -25,23 +31,66 @@ body {
     - Capa fija que crea un efecto radial en el fondo.
     - El color se actualiza desde JS cuando el usuario mueve el ratón.
 */
-
-/* Efecto de fondo brillante */
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(122,45,179,0.12), transparent 60%);
-    animation: glow 6s infinite alternate;
-    z-index: -1;
+body {
+    margin: 0;
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    font-family: "Poppins", sans-serif;
 }
 
-@keyframes glow {
-    from {opacity: 0.3;}
-    to {opacity: 0.6;}
+/* ==========================
+   2. Tema Juvenil (body.secundaria)
+   - Estilos específicos para la página principal.
+   ========================== */
+body.secundaria{
+    /* Variables de color del tema */
+    --color-primario: #8E24AA;
+    --color-secundario: #F06292;
+    --color-acento: #FFEB3B;
+    --color-text-dark: #333333;
+    --card-radius: 20px;
+    --sweep-duration: 6s;
+
+    /* Tipografía y fondo */
+    font-family: 'Poppins', 'Comic Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: linear-gradient(180deg, #BA68C8 0%, #F8BBD0 100%);
+    color: var(--color-text-dark);
 }
 
-/* Header */
+/* Títulos principales con fuente distintiva */
+body.secundaria h1,
+body.secundaria h2,
+body.secundaria h3 {
+    font-family: 'Orbitron', 'Poppins', sans-serif;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-weight: 800;
+}
+
+body.secundaria h1 {
+    text-shadow: none;
+    letter-spacing: 2px;
+    font-weight: 900;
+    font-size: 3.6rem;
+}
+
+/* Texto de párrafos */
+body.secundaria p,
+body.secundaria li {
+    font-family: 'Poppins', 'Comic Neue', sans-serif;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ==========================
+   3. Layout Principal (Header, Main, Footer)
+   ========================== */
 header {
     text-align: center;
     padding: 60px 20px;
@@ -49,24 +98,15 @@ header {
 }
 
 header h1 {
-    font-size: 4em;
-    color: var(--accent1, #7A2DB3);
-    text-shadow: 0 0 20px rgba(122,45,179,0.45), 0 0 40px rgba(224,58,140,0.22);
+    font-size: 3.6rem; /* Ajustado por tema .secundaria */
 }
 
 header .slogan {
     font-size: 1.2em;
-    color: var(--accent2, #E03A8C);
+    color: var(--color-secundario);
     margin-top: 10px;
 }
 
-/* ==========================
-     Sección: tarjetas informativas
-     - .info-card: recuadro principal con fondo blanco y texto oscuro para
-         buena legibilidad (contraste con el fondo morado).
-*/
-
-/* Sección de información */
 .about {
     display: flex;
     flex-direction: column; /* apilar el recuadro y el texto debajo */
@@ -76,31 +116,14 @@ header .slogan {
     padding: 50px;
 }
 
-.info-card {
-    background: var(--white, #FFFFFF);
-    color: var(--text-dark, #222222);
-    border: 1px solid rgba(122,45,179,0.18);
-    border-radius: 15px;
-    padding: 30px;
-    width: 80%;
-    max-width: 800px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(122,45,179,0.06);
-    transition: transform 0.3s ease;
-}
-
-.info-card:hover {
-    transform: scale(1.02);
-}
-
-/* Botones de niveles */
 .levels {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    padding: 50px;
+    gap: 32px; /* Aumentamos el gap para compensar el padding eliminado */
+    padding: 12px 0 50px; /* Eliminado el padding horizontal */
     justify-items: center;
-    justify-content: center; /* centrar el grid dentro del contenedor */
+    max-width: 1180px; /* Ancho máximo para consistencia con .preview-row */
+    margin: 0 auto; /* Centrar el contenedor del grid */
 }
 
 /* Asegurar que cada celda (.level) centre su contenido (el botón) */
@@ -111,103 +134,66 @@ header .slogan {
     width: 100%;
 }
 
-.dropdown-btn {
-    background: transparent;
-    border: 2px solid var(--accent1, #7A2DB3);
-    color: var(--accent1, #7A2DB3);
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-    box-shadow: 0 6px 18px rgba(224,58,140,0.06);
-}
-
-.dropdown-btn:hover {
-    background: var(--accent2, #E03A8C);
-    color: var(--white, #FFFFFF);
-    box-shadow: 0 10px 36px rgba(224,58,140,0.18), 0 0 60px rgba(122,45,179,0.08);
-}
-
-/* Enlaces que actúan como botones (diseño solicitado) */
-.level-link {
-    display: inline-block;
-    background: #ffffff;
-    color: var(--text-dark, #222222); /* texto oscuro para buen contraste */
-    padding: 16px 32px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 1.15em;
-    font-family: inherit; /* usar la tipografía global (Orbitron) */
-    font-weight: 700;
-    box-shadow: 0 10px 28px rgba(122,45,179,0.06), 0 2px 6px rgba(0,0,0,0.08);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    text-align: center;
-    width: auto; /* no forzar ancho completo, permitir centrar */
-    max-width: 320px;
-}
-
-.level-link:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(5,40,47,0.35);
-}
-
-.level-link:active {
-    transform: translateY(-2px) scale(0.995);
-    box-shadow: 0 10px 24px rgba(5,40,47,0.25);
-}
-
-/* Contenido desplegable */
-.dropdown-content {
-    display: none;
-    flex-direction: column;
-    background: rgba(122,45,179,0.06);
-    border-radius: 10px;
-    margin-top: 10px;
-    border: 1px solid rgba(224,58,140,0.12);
-}
-
-.dropdown-content a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    transition: background 0.3s ease;
-}
-
-.dropdown-content a:hover {
-    background: rgba(224,58,140,0.12);
-}
-
-/* Footer */
 footer {
     text-align: center;
     padding: 30px;
-    color: var(--accent2, #E03A8C);
+    color: var(--color-secundario);
     border-top: 1px solid rgba(255,255,255,0.08);
     background: rgba(0,0,0,0.12);
 }
 
 /* ==========================
-    Layout helpers y ajustes responsivos
-    - Reglas para asegurar comportamiento y legibilidad en pantallas pequeñas
-    - Preferencias de usuario (prefers-reduced-motion) respetadas abajo
-*/
+   4. Componentes Específicos
+   ========================== */
 
-
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    height: auto; /* permitir que el contenido crezca y el footer sea visible */
-    overflow-y: auto; /* permitir desplazamiento vertical */
-    font-family: "Poppins", sans-serif;
-    position: relative;
+/* Tarjeta de información */
+.info-card {
+    background: var(--color-white);
+    color: var(--color-text-dark);
+    border-radius: var(--card-radius);
+    border: 2px solid rgba(142,36,170,0.10);
+    box-shadow: 0 10px 30px rgba(142,36,170,0.08);
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-/* Contenedor del asistente - usar transform para animar (mejor rendimiento) */
+.info-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+/* Botones de enlace a niveles */
+.level-link {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px 32px;
+    width: 250px;
+    max-width: 320px;
+    font-size: 1.15em;
+    /* Estilos aplicados por el tema .secundaria */
+    border-radius: var(--card-radius);
+    background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+    color: var(--color-white);
+    border: none;
+    font-family: 'Poppins', 'Comic Neue', sans-serif;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(124,24,150,0.18);
+    transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.level-link:hover {
+    transform: scale(1.08);
+    background: linear-gradient(90deg, var(--color-secundario), var(--color-acento));
+    box-shadow: 0 18px 42px rgba(124,24,150,0.22);
+}
+
+/* ==========================
+   5. Asistente Flotante y Animaciones
+   ========================== */
 #asistente {
     position: fixed; /* se mueve por la ventana */
     top: 0; /* el desplazamiento real lo controlamos por transform en JS */
@@ -217,10 +203,10 @@ body {
     cursor: pointer;
     transform-origin: center;
     will-change: transform, opacity;
-    animation: flotar-transform 6s ease-in-out infinite;
+    /* La animación 'sweep' se aplica con una clase desde JS */
 }
 
-/* Decoración indirecta: pseudo-elemento que no afecta el texto */
+/* Halo de luz decorativo detrás del asistente */
 #asistente::before {
     content: "";
     position: absolute;
@@ -237,15 +223,15 @@ body {
     will-change: transform, opacity;
 }
 
-/* Imagen sin fondo */
 .imagen-bot {
-    width: 80px;
-    height: 80px;
+    width: 110px; /* Tamaño ajustado por tema .secundaria */
+    height: 110px;
     object-fit: contain;
     pointer-events: none;
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.6));
+    transition: transform 320ms ease;
 }
 
-/* Mensaje emergente */
 #mensaje {
     display: none;
     position: absolute;
@@ -256,19 +242,6 @@ body {
     padding: 10px 15px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* Movimiento tipo "revoloteo" optimizado con transform */
-@keyframes flotar-transform {
-    0%   { transform: translate(0,0) rotate(-6deg); }
-    12%  { transform: translate(-18px,-6px) rotate(6deg); }
-    25%  { transform: translate(16px,-10px) rotate(-3deg); }
-    38%  { transform: translate(-8px,8px) rotate(6deg); }
-    50%  { transform: translate(0px,12px) rotate(-4deg); }
-    62%  { transform: translate(10px,-8px) rotate(8deg); }
-    75%  { transform: translate(-14px,-4px) rotate(-2deg); }
-    88%  { transform: translate(6px,6px) rotate(2deg); }
-    100% { transform: translate(0,0) rotate(-6deg); }
 }
 
 @keyframes asistente-deco {
@@ -295,171 +268,6 @@ body {
     100% { opacity: 0; transform: scale(0.2); }
 }
 
-/* Respect user preference for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    #asistente,
-    #asistente::before,
-    .sparkle,
-    .overlay {
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
-/* ==========================
-   Visual enhancements (additive)
-   - no cambia contenido existente
-   - microinteracciones, decoraciones y accesibilidad
-   ========================== */
-
-:root{
-    /* Paleta Hack4Edu (variables principales) */
-    --color-primario: #7A2DB3;    /* morado/púrpura brillante (fondo / encabezados) */
-    --color-secundario: #E03A8C;  /* fucsia / magenta (resaltados, botones) */
-    --color-text-dark: #222222;   /* texto principal (gris oscuro / casi negro) */
-    --color-white: #FFFFFF;       /* blanco puro - fondos y contraste */
-    --gradient-primary: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
-
-    /* Backwards-compatible aliases (mantener nombres previos usados en el proyecto) */
-    --accent1: var(--color-primario);
-    --accent2: var(--color-secundario);
-    --text-dark: var(--color-text-dark);
-    --white: var(--color-white);
-    --glass: rgba(255,255,255,0.05);
-    --glass-strong: rgba(255,255,255,0.12);
-    --card-radius: 14px;
-}
-
-/* ==========================
-   Juvenile theme scoped to main page
-   - Apply only when <body class="secundaria"> is present (Principal.html)
-   - Overrides colors, fonts, radii, shadows and animation intensity to be
-     more friendly for ~13 year olds while keeping the same class/HTML structure.
-*/
-body.secundaria{
-    /* color variables (friendly, vibrant) */
-    --color-primario: #8E24AA;    /* púrpura alegre */
-    --color-secundario: #F06292;  /* rosa vivo */
-    --color-acento: #FFEB3B;      /* amarillo para destacados */
-    --color-fondo: #EDE7F6;       /* fondo claro lila */
-    --color-text-dark: #333333;   /* texto legible */
-    --color-white: #FFFFFF;
-
-    /* UI tuning */
-    --card-radius: 20px;
-    --sweep-duration: 6s; /* faster, friendlier motion */
-    --overlay-opacity: 0.06;
-    --blob-opacity: 0.04;
-
-    /* typography */
-    font-family: 'Poppins', 'Comic Neue', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-
-    /* gentle, bright background for main page */
-    background: linear-gradient(180deg, #BA68C8 0%, #F8BBD0 100%);
-    color: var(--color-text-dark);
-}
-
-/* headers keep a hint of Orbitron for titles but remain readable */
-body.secundaria header h1{
-    font-family: 'Orbitron', 'Poppins', sans-serif;
-    color: var(--color-primario);
-    text-shadow: none;
-    text-transform: uppercase; /* títulos en mayúsculas */
-    letter-spacing: 2px;      /* separación entre letras */
-    font-weight: 900;
-    font-size: 3.6rem; /* mantener grande pero proporcional */
-}
-
-/* Títulos H2/H3 dentro del tema juvenil */
-body.secundaria h2, body.secundaria h3 {
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1.6px;
-    color: var(--color-primario);
-    font-weight: 800;
-}
-
-/* Texto principal: fuente limpia y juvenil, mejor line-height para lectura */
-body.secundaria p,
-body.secundaria li,
-body.secundaria .info-card p,
-body.secundaria .choose-level {
-    font-family: 'Poppins', 'Comic Neue', sans-serif;
-    color: var(--color-text-dark);
-    line-height: 1.6;
-    font-size: 1rem;
-}
-
-/* Palabras importantes en negrita o con color rosa brillante */
-body.secundaria strong,
-body.secundaria b {
-    font-weight: 800;
-    color: var(--color-secundario);
-}
-/* Clase utilitaria para resaltar texto clave */
-.highlight {
-    color: var(--color-secundario);
-    font-weight: 800;
-    background: rgba(240,98,146,0.08);
-    padding: 2px 6px;
-    border-radius: 6px;
-}
-
-/* info card: rounded, brighter and high-contrast */
-body.secundaria .info-card{
-    background: var(--color-white);
-    color: var(--color-text-dark);
-    border-radius: var(--card-radius);
-    border: 2px solid rgba(142,36,170,0.10);
-    box-shadow: 0 10px 30px rgba(142,36,170,0.08);
-}
-
-/* Buttons: bigger radius, playful gradient on hover */
-body.secundaria .dropdown-btn,
-body.secundaria .boton-interactivo,
-body.secundaria .level-link{
-    border-radius: var(--card-radius);
-    transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
-}
-body.secundaria .dropdown-btn,
-body.secundaria .boton-interactivo,
-body.secundaria .level-link{
-    /* Base buttons: gradient morado->rosa, texto blanco y tipografía juvenil en negrita */
-    background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
-    color: var(--color-white);
-    border: none;
-    font-family: 'Poppins', 'Comic Neue', sans-serif;
-    font-weight: 800;
-    box-shadow: 0 10px 30px rgba(124,24,150,0.18);
-}
-
-body.secundaria .dropdown-btn:hover,
-body.secundaria .boton-interactivo:hover,
-body.secundaria .level-link:hover{
-    transform: scale(1.08);
-    background: linear-gradient(90deg, var(--color-secundario), var(--color-acento));
-    color: var(--color-white);
-    box-shadow: 0 18px 42px rgba(124,24,150,0.22);
-}
-
-/* reduce intensity of blobs and overlay for clarity */
-body.secundaria .overlay{
-    background: radial-gradient(circle, rgba(240,98,146,var(--overlay-opacity)), transparent 60%);
-}
-body.secundaria::before,
-body.secundaria::after{
-    background: radial-gradient(circle at 30% 30%, rgba(142,36,170,var(--blob-opacity)), transparent 30%), radial-gradient(circle at 70% 70%, rgba(240,98,146,calc(var(--blob-opacity) - 0.01)), transparent 30%);
-    filter: blur(32px);
-}
-
-/* assistant: softer hover bounce */
-body.secundaria #asistente:hover .imagen-bot{ transform: scale(1.08) translateY(-4px); }
-
-/* ensure sweep uses the tuned duration in juvenile theme */
-body.secundaria .sweep{ animation-duration: var(--sweep-duration, 6s); }
-
 /* Assistant orientation + hover scale using CSS variables
    - Uses --face-scaleX (1 or -1) and --face-rotate to slightly turn the image
    - --hover-scale is set on hover to increase size smoothly without losing orientation
@@ -469,15 +277,12 @@ body.secundaria #asistente{
     width: 110px;
     height: 110px;
 }
-body.secundaria .imagen-bot{
-    width: 110px;
-    height: 110px;
+body.secundaria .imagen-bot {
     --face-scaleX: 1;
     --face-rotate: 0deg;
     --hover-scale: 1;
     transform: scaleX(var(--face-scaleX)) rotateZ(var(--face-rotate)) scale(var(--hover-scale));
     transition: transform 360ms cubic-bezier(.22,.9,.35,1);
-    pointer-events: none;
 }
 body.secundaria #asistente:hover .imagen-bot{ --hover-scale: 1.12; }
 
@@ -513,40 +318,40 @@ body::after{
     100%{ transform: translate3d(0,0,0) rotate(0deg); }
 }
 
-/* Glass sheen on cards without changing markup */
-.info-card,
-.contenido-tema{
-    background-image: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
-    border-radius: var(--card-radius);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.02);
-    transition: transform 0.32s cubic-bezier(.22,.9,.35,1), box-shadow 0.32s ease, background 0.32s ease;
+/* Efecto de fondo brillante (overlay) */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(240,98,146,0.06), transparent 60%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* ==========================
-   Preview row: imágenes alusivas encima de los botones
-   - Espera imágenes en ../Imagenes con nombres: Primaria.png, Secundaria.png, Preparatoria.png, Universidad.png
-   - Las imágenes se escalan y recortan (object-fit: cover) para mantener consistencia
+   6. Preview de Imágenes
+   - Tarjetas con imágenes encima de los botones de nivel.
 */
 .preview-row{
     /* Use the same column behavior as .levels so previews align above each button */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    width: 90%;
-    max-width: 980px;
-    margin: 18px auto 6px auto;
+    gap: 32px; /* Aumentamos el gap para compensar el padding eliminado */
+    max-width: 1180px; /* Ancho máximo para consistencia con .levels */
+    margin: 18px auto 0; /* Margen superior, 0 inferior, y centrado horizontal */
     align-items: center;
     justify-items: center;
 }
 .preview-card{
     width: 100%;
-    max-width: 220px;
+    max-width: 250px; /* Igualar al ancho de los botones (.level-link) para una alineación perfecta */
     aspect-ratio: 16 / 10; /* tarjeta rectangular agradable */
     border-radius: var(--card-radius);
-    overflow: hidden;
-    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,255,255,1));
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    border: 1px solid rgba(122,45,179,0.06);
+    overflow: hidden; /* Mantiene la imagen dentro del borde redondeado */
+    /* Aplicar el mismo fondo de gradiente que los botones para simular un borde */
+    background: linear-gradient(90deg, var(--color-primario, #8E24AA), var(--color-secundario, #F06292));
+    box-shadow: 0 10px 30px rgba(124,24,150,0.18); /* Sombra consistente con los botones */
+    padding: 5px; /* Ancho del borde */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -554,20 +359,9 @@ body::after{
 .preview-card img{
     width: 100%;
     height: 100%;
+    border-radius: calc(var(--card-radius) - 5px); /* Radio interior para que encaje bien */
     object-fit: cover; /* recorta si es necesario conservando el centro */
     display: block;
-}
-
-/* Juvenile theme tuning for preview cards: brighter, friendly border and subtle gradient overlay */
-body.secundaria .preview-card{
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,240,250,0.98));
-    border: 2px solid rgba(142,36,170,0.08);
-    box-shadow: 0 14px 36px rgba(142,36,170,0.06);
-}
-body.secundaria .preview-card::after{
-    content: '';
-    position: absolute;
-    pointer-events: none;
 }
 
 /* Small screens: make preview cards slightly taller for touch */
@@ -582,52 +376,6 @@ body.secundaria .preview-card::after{
     font-size: 1.25rem;
     color: inherit; /* seguir color del body (contraste) */
 }
-
-/* Si .choose-level está dentro de .levels (grid), forzar que ocupe toda la fila y quede centrado sobre los botones */
-.levels .choose-level{
-    grid-column: 1 / -1; /* ocupar todas las columnas del grid */
-    text-align: center;
-    font-size: 1.35rem;
-    margin-bottom: 18px;
-    opacity: 0.98;
-}
-.info-card:hover,
-.contenido-tema:hover{ transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,0.45); }
-
-/* Button glow / micro-ripple (pure CSS, additive) */
-.boton-interactivo{ position: relative; overflow: hidden; }
-.boton-interactivo::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(122,45,179,0.06), rgba(224,58,140,0.04));
-    opacity: 0;
-    transform: scale(0.98);
-    transition: opacity 260ms ease, transform 360ms ease;
-    pointer-events: none;
-}
-.boton-interactivo:hover::after{ opacity: 1; transform: scale(1.02); }
-
-/* Make level links more attractive */
-.level-link{
-    background: linear-gradient(180deg, #ffffff 0%, #f3ffff 100%);
-    border: 1px solid rgba(122,45,179,0.08);
-    box-shadow: 0 12px 30px rgba(122,45,179,0.06), 0 4px 10px rgba(0,0,0,0.12);
-}
-
-/* subtle entrance for sections */
-.seccion{ opacity: 0; transform: translateY(10px); animation: section-in 600ms ease forwards; }
-@keyframes section-in{ to { opacity: 1; transform: translateY(0); } }
-
-/* nav link underline animation */
-.site-nav a{ position: relative; overflow: visible; }
-.site-nav a::after{ content: '' ; position: absolute; left: 12%; right: 12%; bottom: -6px; height: 2px; background: linear-gradient(90deg,var(--accent1),var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 260ms cubic-bezier(.22,.9,.35,1); opacity: 0.95; }
-.site-nav a:hover::after, .site-nav a.active::after{ transform: scaleX(1); }
-
-/* improve assistant visual (drop shadow + subtle halo) */
-.imagen-bot{ filter: drop-shadow(0 10px 18px rgba(0,0,0,0.6)) drop-shadow(0 4px 12px rgba(122,45,179,0.06)); transition: transform 320ms ease, filter 200ms ease; }
-/* slight scale when hovering assistant */
-#asistente:hover .imagen-bot{ transform: scale(1.06) translateY(-2px); }
 
 /* Sweep (barrido) horizontal para el asistente/abeja
    - Usa una variable CSS --sweep-distance que escribe JS según el ancho
@@ -655,13 +403,20 @@ body.secundaria .preview-card::after{
 /* Pausar la animación al pasar el ratón (mejor UX) */
 .sweep:hover { animation-play-state: paused; }
 
-/* custom thin scrollbar to match theme */
+/* Barra de scroll personalizada */
 ::-webkit-scrollbar{ width: 10px; height: 10px; }
 ::-webkit-scrollbar-track{ background: transparent; }
 ::-webkit-scrollbar-thumb{ background: linear-gradient(180deg, rgba(122,45,179,0.18), rgba(224,58,140,0.12)); border-radius: 999px; }
 
-/* small performance: disable animations for reduced-motion users */
+/* Accesibilidad: reducir movimiento para usuarios que lo prefieran */
 @media (prefers-reduced-motion: reduce){
-    body::before, body::after, .seccion, .info-card, .contenido-tema, .boton-interactivo::after { animation: none !important; transition: none !important; }
+    #asistente,
+    #asistente::before,
+    .sparkle,
+    .overlay,
+    body::before,
+    body::after {
+        animation: none !important;
+    }
+    * { transition: none !important; }
 }
-
