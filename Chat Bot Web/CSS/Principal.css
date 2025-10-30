@@ -55,7 +55,7 @@ body.secundaria{
     --sweep-duration: 6s;
 
     /* Tipografía y fondo */
-    font-family: 'Poppins', 'Comic Neue', sans-serif;
+    font-family: 'Baloo 2', 'Poppins', sans-serif; /* Fuente más redondeada y amigable */
     font-size: 16px;
     line-height: 1.5;
     background: linear-gradient(180deg, #BA68C8 0%, #F8BBD0 100%);
@@ -66,7 +66,7 @@ body.secundaria{
 body.secundaria h1,
 body.secundaria h2,
 body.secundaria h3 {
-    font-family: 'Orbitron', 'Poppins', sans-serif;
+    font-family: 'Fredoka One', 'Orbitron', sans-serif; /* Fuente de título más juguetona */
     color: var(--color-primario);
     text-transform: uppercase;
     letter-spacing: 1.6px;
@@ -74,16 +74,16 @@ body.secundaria h3 {
 }
 
 body.secundaria h1 {
-    text-shadow: none;
-    letter-spacing: 2px;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1);
+    letter-spacing: 2.5px;
     font-weight: 900;
-    font-size: 3.6rem;
+    font-size: 4.2rem;
 }
 
 /* Texto de párrafos */
 body.secundaria p,
 body.secundaria li {
-    font-family: 'Poppins', 'Comic Neue', sans-serif;
+    font-family: 'Baloo 2', 'Poppins', sans-serif;
     line-height: 1.6;
     font-size: 1rem;
 }
@@ -102,9 +102,11 @@ header h1 {
 }
 
 header .slogan {
-    font-size: 1.2em;
-    color: var(--color-secundario);
-    margin-top: 10px;
+    font-size: 1.3em;
+    color: var(--color-text-dark);
+    margin-top: 15px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .about {
@@ -137,9 +139,9 @@ header .slogan {
 footer {
     text-align: center;
     padding: 30px;
-    color: var(--color-secundario);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    background: rgba(0,0,0,0.12);
+    color: #EADFF2; /* Color de texto más claro para mejor contraste y cohesión */
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Borde superior más visible */
+    background: rgba(142, 36, 170, 0.2); /* Fondo más oscuro y cohesivo con el tema */
 }
 
 /* ==========================
@@ -179,7 +181,7 @@ footer {
     background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
     color: var(--color-white);
     border: none;
-    font-family: 'Poppins', 'Comic Neue', sans-serif;
+    font-family: 'Baloo 2', 'Poppins', sans-serif; /* Coincidir con la fuente del cuerpo */
     font-weight: 800;
     box-shadow: 0 10px 30px rgba(124,24,150,0.18);
     transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
