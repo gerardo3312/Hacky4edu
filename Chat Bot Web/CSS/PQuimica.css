@@ -491,7 +491,7 @@ footer {
 .curious-fact-box {
     position: absolute;
     top: 450px; /* Adjusted to be roughly at the height of the first button */
-    left: 80px;
+    left: 20px;
     width: 250px;
     padding: 0 15px 15px 15px;
     background-color: rgba(255, 255, 255, 0.9);
