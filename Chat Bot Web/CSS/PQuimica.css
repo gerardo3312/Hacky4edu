@@ -468,7 +468,7 @@ footer {
 
 .info-panel.active {
     grid-column: 1 / -1; /* Span all columns when active */
-    max-height: 1000px; /* Large enough value to show content */
+    max-height: 2000px; /* Large enough value to show content */
     opacity: 1;
     padding: 15px 20px; /* Add padding when active */
 }
@@ -544,4 +544,13 @@ footer {
     line-height: 1.6;
     color: #333;
     margin-bottom: 1em;
+}
+
+.new-icon-right {
+    position: absolute;
+    top: 450px;
+    right: 120px;
+    width: 150px;
+    height: auto;
+    z-index: 1000;
 }

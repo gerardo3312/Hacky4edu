@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemáticas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/PQuimica.css">
+</head>
+
+<body>
+
+
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+        Chatbot.init({
+            chatflowid: "2ea09844-1987-42f0-b8a0-78d2d5d1a875",
+            apiHost: "http://localhost:3000",
+            chatbotName: "Pollen Jocks",
+            theme: {
+                chatWindow: {
+                    welcomeMessage: "¡Hola! Soy Pollen Jocks 🌼 ¿En qué puedo ayudarte?",
+                    backgroundColor: "#ffffff",
+                    fontSize: "16px",
+                    poweredByTextColor: "#999999",
+                },
+                button: {
+                    icon: "/", // <-- usa iconUrl, no "icon"
+                    backgroundColor: "#fbbf24",
+                    right: 30,
+                    bottom: 30,
+                    size: 60,
+                    borderRadius: 50, // lo hace circular
+                },
+            },
+        })
+    </script>
+
+
+
+
+    <!-- Navegación superior -->
+     <nav class="site-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="../HTML/index.html">Inicio</a></li>
+            <li><a href="../HTML/Ciencia.html">Ciencia</a></li>
+            <li><a href="../HTML/Tecnologia.html">Tecnología</a></li>
+            <li><a href="../HTML/Ingieneria.html">Ingieneria</a></li>
+            <li><a href="../HTML/Matematicas.html"class="active">Matemáticas</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero local de la página Primaria: presenta el nivel y CTAs hacia los temas -->
+    <header class="page-hero" aria-labelledby="primaria-title">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <!-- 'nivel-pill' es una etiqueta visual para indicar el nivel actual -->
+                <span class="nivel-pill">Matemáticas</span>
+                <h1 id="primaria-title" class="titulo-tema">Matemáticas</h1>
+                <p class="hero-lead">La sección de Matemáticas presenta temas educativos para que explores el mundo de los números, las formas y los patrones.</p>
+            </div>
+            <img src="../Imagenes/Matematicas.jpg" alt="Matematicas Icono" class="hero-illustration-img">
+        </div>
+    </header>
+
+    <div class="curious-fact-box">
+        <div class="curious-fact-header">
+            <h2>Dato Curioso</h2>
+        </div>
+        <p id="fact-display"></p>
+    </div>
+
+    <img src="../Imagenes/Ciencia/Icono.png" alt="Nuevo Icono" class="new-icon-right">
+
+    <main>
+        <div class="accordion-container">
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-1">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/boton1.png" alt="Boton 1" class="button-icon">
+                        <span>Química</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-2">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton2.png" alt="Boton 2" class="button-icon">
+                        <span>Historia</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-3">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton3.png" alt="Boton 3" class="button-icon">
+                        <span>Tecnología</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-4">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton4.png" alt="Boton 4" class="button-icon">
+                        <span>Matemáticas</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="info-panel-1" class="info-panel">
+            <h2>Química</h2>
+            <p>Descripción: Este tema está diseñado para estudiantes universitarios que buscan comprender las bases
+                teóricas y experimentales de la química avanzada y su aplicación a investigación y tecnología.</p>
+            <p>Contenido principal: termodinámica química (entalpía, entropía y energía libre), cinética (leyes de
+                velocidad y factores que afectan la rapidez de reacción), técnicas instrumentales (principios
+                básicos de espectroscopía UV-Vis e IR, cromatografía y análisis cuantitativo) y química orgánica con
+                énfasis en mecanismos de reacción.</p>
+            <p>Ejercicio experimental (guía): diseñar un experimento para medir la constante de velocidad de una
+                reacción simple, recopilando datos de concentración vs tiempo, graficar y obtener la ley de
+                velocidad aproximada. Redactar un informe con introducción, metodología, resultados, análisis y
+                conclusiones.</p>
+            <p>Actividades de profundización: interpretar espectros básicos, calcular energía de reacción usando
+                valores tabulados de entalpías, y discutir consideraciones de seguridad y ética en el laboratorio.
+            </p>
+            <p>Recursos sugeridos: referencias a libros introductorios de química física y artículos de divulgación
+                que expliquen técnicas analíticas.</p>
+        </div>
+
+        <div id="info-panel-2" class="info-panel">
+            <h2>Historia</h2>
+            <p>Descripción: En este nivel se trabaja en la producción historiográfica: diseño de preguntas, revisión
+                crítica de bibliografía y uso sistemático de fuentes primarias para construir argumentos académicos.
+            </p>
+            <p>Contenido principal: métodos de investigación histórica, marcos teóricos (estructuralismo, marxismo,
+                poscolonialismo, entre otros), manejo de archivos y producción de ensayos académicos con citas
+                formales.</p>
+            <p>Trabajo de investigación: desarrollar una pregunta de investigación, revisar bibliografía
+                especializada, analizar fuentes primarias y secundarias y producir un ensayo de 8–12 páginas que
+                presente una postura fundada y discuta contra-argumentos.</p>
+            <p>Evaluación: rúbrica que incluya calidad de fuentes, coherencia argumental, claridad metodológica y
+                originalidad en la interpretación.</p>
+        </div>
+
+        <div id="info-panel-3" class="info-panel">
+            <h2>Tecnología</h2>
+            <p>Descripción: Aborda ingeniería de software, aprendizaje automático y arquitectura de sistemas, con
+                énfasis en prácticas reproducibles y en la resolución de problemas complejos.</p>
+            <p>Contenido principal: algoritmos avanzados y estructuras de datos, fundamentos de aprendizaje
+                automático (preprocesado, modelado, evaluación), arquitectura de sistemas y prácticas de DevOps
+                básicas (CI/CD, pruebas automatizadas).</p>
+            <p>Proyecto guía: implementar un pipeline de ML simple: limpieza de datos, selección de características,
+                entrenamiento de un modelo supervisado y evaluación; documentar resultados, limitaciones y sesgos
+                potenciales.</p>
+            <p>Evaluación: entrega de código con pruebas, informe técnico y breve presentación que explique
+                decisiones de diseño y métricas empleadas.</p>
+        </div>
+
+        <div id="info-panel-4" class="info-panel">
+            <h2>Matemáticas</h2>
+            <p>Descripción: El tema ofrece herramientas para modelado y análisis matemático a nivel universitario,
+                incluyendo álgebra lineal, análisis y estadística aplicada.</p>
+            <p>Contenido principal: espacios vectoriales y matrices (aplicaciones en sistemas y modelos), cálculo
+                diferencial en una variable (conceptos de derivada y optimización), métodos numéricos básicos y
+                estadística inferencial aplicada a conjuntos de datos reales.</p>
+            <p>Actividad práctica: formular un modelo matemático para un problema aplicado (por ejemplo, modelar la
+                difusión de una sustancia o hacer una regresión multivariable sobre datos experimentales),
+                resolverlo numéricamente y presentar resultados con discusión de supuestos y limitaciones.</p>
+            <p>Evaluación: informe técnico con desarrollo matemático, resultados numéricos y validación con datos.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const infoButtons = document.querySelectorAll('.info-button');
+            let activePanel = null;
+
+            infoButtons.forEach((button, index) => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent the default anchor behavior
+                    const targetId = button.parentElement.getAttribute('href').substring(1);
+                    const targetPanel = document.getElementById(targetId);
+
+                    if (targetPanel) {
+                        if (activePanel && activePanel !== targetPanel) {
+                            activePanel.classList.remove('active');
+                        }
+                        targetPanel.classList.toggle('active');
+                        activePanel = targetPanel.classList.contains('active') ? targetPanel : null;
+
+                        // Smooth scroll to the panel
+                        if (targetPanel.classList.contains('active')) {
+                            const targetTop = targetPanel.getBoundingClientRect().top + window.pageYOffset;
+                            let offset = 0;
+
+                            if (index === 2 || index === 3) { // Buttons 3 and 4
+                                offset = 150;
+                            } else if (index === 4 || index === 5) { // Buttons 5 and 6
+                                offset = 300;
+                            }
+
+                            window.scrollTo({
+                                top: targetTop - offset,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            const curiousFacts = [
+                "**Dato de Física:** ¿Sabías que la luz viaja súper rápido? La luz del sol tarda solo 8 minutos en llegar a la Tierra, ¡como si corriera una carrera espacial!",
+                "**Dato de Biología:** ¡Tu cuerpo es asombroso! Tienes más células en tu cuerpo que estrellas en nuestra galaxia. ¡Eres un universo de células!",
+                "**Dato de Química:** El agua es como un imán. Sus gotitas se pegan unas a otras, y por eso los insectos pueden caminar sobre el agua. ¡Es como si tuvieran zapatos mágicos!",
+                "**Dato de Astronomía:** ¡Vivimos en una galaxia gigante llamada Vía Láctea! Tiene tantas estrellas que si las contaras, tardarías miles de años. ¡Es como tener un frasco de estrellas infinito!",
+                "**Dato de Geología:** El centro de la Tierra es súper caliente, ¡más caliente que un volcán! Pero no te preocupes, estamos protegidos por muchas capas de roca.",
+                "**Dato de Tecnología:** La primera programadora de computadoras fue una mujer llamada Ada Lovelace, ¡hace mucho, mucho tiempo! Ella imaginó cómo las computadoras podrían hacer más que solo sumar números."
+            ];
+
+            const factDisplay = document.getElementById('fact-display');
+
+            function displayRandomFact() {
+                const randomIndex = Math.floor(Math.random() * curiousFacts.length);
+                factDisplay.innerHTML = curiousFacts[randomIndex]; // Use innerHTML for bold text
+            }
+
+            // Display a fact immediately
+            displayRandomFact();
+
+            // Update the fact every 20 seconds (20000 milliseconds)
+            setInterval(displayRandomFact, 20000);
+        });
+    </script>
+    <script src="../Java/Principal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/PQuimica.css">
+</head>
+
+<body>
+
+
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+        Chatbot.init({
+            chatflowid: "2ea09844-1987-42f0-b8a0-78d2d5d1a875",
+            apiHost: "http://localhost:3000",
+            chatbotName: "Pollen Jocks",
+            theme: {
+                chatWindow: {
+                    welcomeMessage: "¡Hola! Soy Pollen Jocks 🌼 ¿En qué puedo ayudarte?",
+                    backgroundColor: "#ffffff",
+                    fontSize: "16px",
+                    poweredByTextColor: "#999999",
+                },
+                button: {
+                    icon: "/", // <-- usa iconUrl, no "icon"
+                    backgroundColor: "#fbbf24",
+                    right: 30,
+                    bottom: 30,
+                    size: 60,
+                    borderRadius: 50, // lo hace circular
+                },
+            },
+        })
+    </script>
+
+
+
+
+    <!-- Navegación superior -->
+     <nav class="site-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="../HTML/index.html">Inicio</a></li>
+            <li><a href="../HTML/Ciencia.html">Ciencia</a></li>
+            <li><a href="../HTML/Tecnologia.html">Tecnología</a></li>
+            <li><a href="../HTML/Ingieneria.html"class="active">Ingieneria</a></li>
+            <li><a href="../HTML/Matematicas.html">Matemáticas</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero local de la página Primaria: presenta el nivel y CTAs hacia los temas -->
+    <header class="page-hero" aria-labelledby="primaria-title">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <!-- 'nivel-pill' es una etiqueta visual para indicar el nivel actual -->
+                <span class="nivel-pill">Ingeniería</span>
+                <h1 id="primaria-title" class="titulo-tema">Ingeniería</h1>
+                <p class="hero-lead">La sección de Ingeniería presenta temas educativos para que explores cómo se diseñan y construyen las cosas que nos rodean.</p>
+            </div>
+            <img src="../Imagenes/Ingieneria.jpg" alt="Ingieneria Icono" class="hero-illustration-img">
+        </div>
+    </header>
+
+    <div class="curious-fact-box">
+        <div class="curious-fact-header">
+            <h2>Dato Curioso</h2>
+        </div>
+        <p id="fact-display"></p>
+    </div>
+
+    <img src="../Imagenes/Ciencia/Icono.png" alt="Nuevo Icono" class="new-icon-right">
+
+    <main>
+        <div class="accordion-container">
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-1">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/boton1.png" alt="Boton 1" class="button-icon">
+                        <span>Química</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-2">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton2.png" alt="Boton 2" class="button-icon">
+                        <span>Historia</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-3">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton3.png" alt="Boton 3" class="button-icon">
+                        <span>Tecnología</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-4">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton4.png" alt="Boton 4" class="button-icon">
+                        <span>Matemáticas</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="info-panel-1" class="info-panel">
+            <h2>Química</h2>
+            <p>Descripción: Profundizamos en la estructura de la materia, cómo y por qué ocurren reacciones, y
+                habilidades experimentales básicas con rigor en la observación y el registro de resultados.</p>
+            <p>Contenido principal: modelos atómicos (electrones, protones, neutrones), enlaces iónicos y
+                covalentes, propiedades periódicas y la interpretación de la tabla periódica. Introducción al
+                concepto de mol y masas molares para cálculos sencillos. Tipos de reacciones comunes y práctica de
+                balanceo de ecuaciones.</p>
+            <p>Experimento y práctica guiada:
+            <ol>
+                <li>Realizar una reacción de precipitación (por ejemplo, mezclando soluciones seguras que formen un
+                    precipitado) y describir observaciones cualitativas.</li>
+                <li>Medir y calcular la masa teórica de producto en una reacción simple (actividad guiada con
+                    números redondeados).</li>
+                <li>Usar modelos de bolas y palos o fichas para representar moléculas y practicar el balanceo de
+                    ecuaciones.</li>
+            </ol>
+            </p>
+            <p>Ejercicios de evaluación: problemas de cálculo estequiométrico sencillos, preguntas de razonamiento
+                sobre por qué ciertos elementos reaccionan más fácilmente y un mini-lab para registrar datos y
+                redactar conclusiones cortas.</p>
+            <p>Recursos y extensión: recomendar experimentos virtuales (simuladores) y lectura breve sobre la
+                historia del desarrollo de la tabla periódica.</p>
+        </div>
+
+        <div id="info-panel-2" class="info-panel">
+            <h2>Historia</h2>
+            <p>Descripción: Se estudia una época o proceso histórico con fuentes y análisis crítico —por ejemplo, la
+                industrialización local o un proceso político del siglo pasado— construyendo evidencias y
+                argumentos.</p>
+            <p>Contenido principal: técnicas para trabajar con fuentes primarias (cartas, periódicos antiguos,
+                fotografías), clasificación de fuentes, y el análisis de causas y consecuencias de procesos
+                históricos relevantes para la comunidad o país.</p>
+            <p>Proyecto de investigación (guiado):
+            <ol>
+                <li>Elegir un evento o cambio social local importante entre los alumnos.</li>
+                <li>Recolectar al menos dos tipos de fuentes (una foto o documento y un testimonio oral) y
+                    analizarlas en clase.</li>
+                <li>Elaborar un informe breve con introducción, desarrollo y conclusiones, citando las fuentes.</li>
+            </ol>
+            </p>
+            <p>Actividades de evaluación: escritura de un ensayo corto con argumentos apoyados en evidencia y una
+                presentación en equipo que exponga diferentes interpretaciones del mismo evento.</p>
+        </div>
+
+        <div id="info-panel-3" class="info-panel">
+            <h2>Tecnología</h2>
+            <p>Descripción: Desarrolla pensamiento algorítmico y habilidades prácticas de diseño y programación con
+                proyectos que integren software y hardware básico.</p>
+            <p>Contenido principal: estructuras de control (condicionales, bucles), conceptos de datos (listas,
+                variables), diseño de algoritmos y prototipado con kits como micro:bit o Arduino para actividades
+                seguras y guiadas.</p>
+            <p>Proyecto central: "Estación meteorológica escolar" — usar un microcontrolador y sensores básicos para
+                recoger temperatura y humedad y presentar los datos en una gráfica simple.
+            <ol>
+                <li>Planificar el diseño del sistema: entrada (sensor), proceso (microcontrolador) y salida
+                    (pantalla o gráfico).</li>
+                <li>Programar la lectura de sensores y guardar datos en una tabla.</li>
+                <li>Analizar los datos recogidos en clase y discutir variaciones y posibles errores.</li>
+            </ol>
+            </p>
+            <p>Evaluación: entrega de un informe técnico con esquema del circuito, pseudocódigo y una reflexión
+                sobre fallos y mejoras.</p>
+        </div>
+
+        <div id="info-panel-4" class="info-panel">
+            <h2>Matemáticas</h2>
+            <p>Descripción: Un tema completo que introduce y aplica álgebra elemental, funciones y análisis de datos
+                para resolver problemas reales.</p>
+            <p>Contenido principal: resolución de ecuaciones lineales, modelado mediante funciones proporcionales y
+                lineales, interpretación de gráficos y problemas de aplicación (velocidad, distancia, costo).</p>
+            <p>Actividad central: "Modelar un problema real" — elegir un fenómeno (por ejemplo, consumo de agua en
+                la escuela) y construir una función que relacione variables, representarla gráficamente y extraer
+                conclusiones.
+            <ol>
+                <li>Recolectar o estimar datos reales.</li>
+                <li>Ajustar una función lineal y graficar los puntos y la recta de ajuste.</li>
+                <li>Responder preguntas sobre predicciones y límites del modelo.</li>
+            </ol>
+            </p>
+            <p>Evaluación: hoja de problemas con ejercicios de ecuaciones, interpretación de gráficas y problemas de
+                aplicación contextualizados.</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const infoButtons = document.querySelectorAll('.info-button');
+            let activePanel = null;
+
+            infoButtons.forEach((button, index) => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent the default anchor behavior
+                    const targetId = button.parentElement.getAttribute('href').substring(1);
+                    const targetPanel = document.getElementById(targetId);
+
+                    if (targetPanel) {
+                        if (activePanel && activePanel !== targetPanel) {
+                            activePanel.classList.remove('active');
+                        }
+                        targetPanel.classList.toggle('active');
+                        activePanel = targetPanel.classList.contains('active') ? targetPanel : null;
+
+                        // Smooth scroll to the panel
+                        if (targetPanel.classList.contains('active')) {
+                            const targetTop = targetPanel.getBoundingClientRect().top + window.pageYOffset;
+                            let offset = 0;
+
+                            if (index === 2 || index === 3) { // Buttons 3 and 4
+                                offset = 150;
+                            } else if (index === 4 || index === 5) { // Buttons 5 and 6
+                                offset = 300;
+                            }
+
+                            window.scrollTo({
+                                top: targetTop - offset,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            const curiousFacts = [
+                "**Dato de Física:** ¿Sabías que la luz viaja súper rápido? La luz del sol tarda solo 8 minutos en llegar a la Tierra, ¡como si corriera una carrera espacial!",
+                "**Dato de Biología:** ¡Tu cuerpo es asombroso! Tienes más células en tu cuerpo que estrellas en nuestra galaxia. ¡Eres un universo de células!",
+                "**Dato de Química:** El agua es como un imán. Sus gotitas se pegan unas a otras, y por eso los insectos pueden caminar sobre el agua. ¡Es como si tuvieran zapatos mágicos!",
+                "**Dato de Astronomía:** ¡Vivimos en una galaxia gigante llamada Vía Láctea! Tiene tantas estrellas que si las contaras, tardarías miles de años. ¡Es como tener un frasco de estrellas infinito!",
+                "**Dato de Geología:** El centro de la Tierra es súper caliente, ¡más caliente que un volcán! Pero no te preocupes, estamos protegidos por muchas capas de roca.",
+                "**Dato de Tecnología:** La primera programadora de computadoras fue una mujer llamada Ada Lovelace, ¡hace mucho, mucho tiempo! Ella imaginó cómo las computadoras podrían hacer más que solo sumar números."
+            ];
+
+            const factDisplay = document.getElementById('fact-display');
+
+            function displayRandomFact() {
+                const randomIndex = Math.floor(Math.random() * curiousFacts.length);
+                factDisplay.innerHTML = curiousFacts[randomIndex]; // Use innerHTML for bold text
+            }
+
+            // Display a fact immediately
+            displayRandomFact();
+
+            // Update the fact every 20 seconds (20000 milliseconds)
+            setInterval(displayRandomFact, 20000);
+        });
+    </script>
+    <script src="../Java/Principal.js"></script>
+</body>
+
+</html>

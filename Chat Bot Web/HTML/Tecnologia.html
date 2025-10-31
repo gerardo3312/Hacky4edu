@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/PQuimica.css">
+</head>
+
+<body>
+
+
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+        Chatbot.init({
+            chatflowid: "2ea09844-1987-42f0-b8a0-78d2d5d1a875",
+            apiHost: "http://localhost:3000",
+            chatbotName: "Pollen Jocks",
+            theme: {
+                chatWindow: {
+                    welcomeMessage: "¡Hola! Soy Pollen Jocks 🌼 ¿En qué puedo ayudarte?",
+                    backgroundColor: "#ffffff",
+                    fontSize: "16px",
+                    poweredByTextColor: "#999999",
+                },
+                button: {
+                    icon: "/", // <-- usa iconUrl, no "icon"
+                    backgroundColor: "#fbbf24",
+                    right: 30,
+                    bottom: 30,
+                    size: 60,
+                    borderRadius: 50, // lo hace circular
+                },
+            },
+        })
+    </script>
+
+
+
+
+    <!-- Navegación superior -->
+    <nav class="site-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="../HTML/index.html">Inicio</a></li>
+            <li><a href="../HTML/Ciencia.html">Ciencia</a></li>
+            <li><a href="../HTML/Tecnologia.html" class="active">Tecnología</a></li>
+            <li><a href="../HTML/Ingieneria.html">Ingieneria</a></li>
+            <li><a href="../HTML/Matematicas.html">Matemáticas</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero local de la página Primaria: presenta el nivel y CTAs hacia los temas -->
+    <header class="page-hero" aria-labelledby="primaria-title">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <!-- 'nivel-pill' es una etiqueta visual para indicar el nivel actual -->
+                <span class="nivel-pill">Tecnología</span>
+                <h1 id="primaria-title" class="titulo-tema">Tecnología</h1>
+                <p class="hero-lead">La sección de Tecnología presenta temas educativos diseñados para que aprendas a
+                    crear y usar la tecnología de forma creativa y responsable.</p>
+            </div>
+            <img src="../Imagenes/Tecnologia/img1.png" alt="Tecnologia Icono" class="hero-illustration-img">
+        </div>
+    </header>
+
+    <div class="curious-fact-box">
+        <div class="curious-fact-header">
+            <h2>Dato Curioso</h2>
+        </div>
+        <p id="fact-display"></p>
+    </div>
+
+    <img src="../Imagenes/Tecnologia/img2.png" alt="Nuevo Icono" class="new-icon-right">
+
+    <main>
+        <div class="accordion-container">
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-1">
+                    <div class="info-button">
+                        <img src="../Imagenes/Tecnologia/B1.png" alt="Boton 1" class="button-icon">
+                        <span>¿Qué es una Computadora?</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-2">
+                    <div class="info-button">
+                        <img src="../Imagenes/Tecnologia/B2.png" alt="Boton 2" class="button-icon">
+                        <span>Internet y el Mundo Conectado</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-3">
+                    <div class="info-button">
+                        <img src="../Imagenes/Tecnologia/B3.png" alt="Boton 3" class="button-icon">
+                        <span>Los Robots y su Trabajo</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item-wrapper">
+                <a href="#info-panel-4">
+                    <div class="info-button">
+                        <img src="../Imagenes/Tecnologia/B4.png" alt="Boton 4" class="button-icon">
+                        <span>Energía y Tecnología Verde</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="info-panel-1" class="info-panel">
+            <p>
+                💻 <b>1. ¿Qué es una Computadora?</b><br><br>
+
+                🌟 <b>Descripción general:</b><br>
+                Una computadora es una máquina que nos ayuda a escribir, dibujar, jugar y buscar información.
+                Funciona gracias a sus partes que trabajan como un equipo para que todo marche bien.<br><br>
+
+                🎯 <b>Objetivo educativo:</b><br>
+                Conocer las partes de una computadora y comprender para qué sirve cada una.<br><br>
+
+                📚 <b>Contenido detallado:</b><br>
+                • <b>Pantalla o monitor:</b> donde vemos imágenes, juegos o textos.<br>
+                • <b>Teclado:</b> sirve para escribir.<br>
+                • <b>Ratón (mouse):</b> ayuda a mover el cursor y hacer clic.<br>
+                • <b>CPU:</b> es el “cerebro” de la computadora.<br>
+                • <b>Bocinas y cámara:</b> nos permiten escuchar y ver.<br><br>
+
+                🎨 <b>Actividades:</b><br>
+                • Dibuja una computadora y escribe el nombre de cada parte.<br>
+                • Busca objetos en casa que se parezcan a las partes de una computadora.<br><br>
+
+                🧩 <b>Datos curiosos:</b><br>
+                • Las primeras computadoras eran tan grandes como una habitación.<br>
+                • Hoy en día, los teléfonos también son computadoras pequeñas.<br>
+            </p>
+
+        </div>
+
+        <div id="info-panel-2" class="info-panel">
+            <p>
+                🌐 <b>2. Internet y el Mundo Conectado</b><br><br>
+
+                🌟 <b>Descripción general:</b><br>
+                Internet conecta millones de computadoras y personas en todo el mundo.
+                Gracias a él, podemos aprender, ver videos, jugar, enviar mensajes y comunicarnos con amigos y
+                familia.<br><br>
+
+                🎯 <b>Objetivo educativo:</b><br>
+                Aprender qué es Internet, para qué sirve y cómo usarlo de forma segura.<br><br>
+
+                📚 <b>Contenido detallado:</b><br>
+                • <b>¿Qué es Internet?</b> Una red que conecta computadoras en todo el mundo.<br>
+                • <b>Usos:</b> buscar información, estudiar, jugar y comunicarse.<br>
+                • <b>Seguridad:</b> no compartir contraseñas, no hablar con desconocidos y visitar sitios
+                confiables.<br><br>
+
+                🎨 <b>Actividades:</b><br>
+                • Dibujar cómo llega Internet a tu casa (del módem a la computadora).<br>
+                • Crear un cartel con reglas para “Navegar Seguro”.<br><br>
+
+                🧩 <b>Datos curiosos:</b><br>
+                • El primer sitio web fue creado en 1991.<br>
+                • Cada segundo, millones de personas usan Internet al mismo tiempo.<br>
+            </p>
+
+        </div>
+
+        <div id="info-panel-3" class="info-panel">
+            <p>
+                🤖 <b>3. Los Robots y su Trabajo</b><br><br>
+
+                🌟 <b>Descripción general:</b><br>
+                Los robots son máquinas que pueden moverse, pensar un poco y hacer tareas.
+                Algunos ayudan en fábricas, otros limpian casas o incluso viajan al espacio.<br><br>
+
+                🎯 <b>Objetivo educativo:</b><br>
+                Entender qué son los robots y cómo ayudan a las personas.<br><br>
+
+                📚 <b>Contenido detallado:</b><br>
+                • <b>Partes del robot:</b> sensores (para sentir), motores (para moverse) y programa (para pensar).<br>
+                • <b>Tipos de robots:</b> domésticos, industriales, médicos, educativos y espaciales.<br>
+                • <b>Ejemplo:</b> un robot aspiradora limpia el piso solo.<br><br>
+
+                🎨 <b>Actividades:</b><br>
+                • Diseña tu propio robot en una hoja y escribe qué tarea haría.<br>
+                • Mira un video corto sobre robots en el espacio.<br><br>
+
+                🧩 <b>Datos curiosos:</b><br>
+                • Algunos robots pueden hablar y reconocer voces.<br>
+                • Hay robots que exploran Marte y mandan fotos a la Tierra.<br>
+            </p>
+
+        </div>
+
+        <div id="info-panel-4" class="info-panel">
+            <p>
+                🔋 <b>4. Energía y Tecnología Verde</b><br><br>
+
+                🌟 <b>Descripción general:</b><br>
+                La tecnología verde usa energía limpia del sol, del viento o del agua para cuidar el planeta.
+                Ayuda a que haya menos contaminación y más aire puro.<br><br>
+
+                🎯 <b>Objetivo educativo:</b><br>
+                Aprender cómo las energías renovables ayudan a proteger la Tierra.<br><br>
+
+                📚 <b>Contenido detallado:</b><br>
+                • <b>Energía solar:</b> usa paneles para transformar la luz del sol en electricidad.<br>
+                • <b>Energía eólica:</b> usa el viento con molinos gigantes.<br>
+                • <b>Energía hidráulica:</b> aprovecha el movimiento del agua.<br>
+                • <b>Tecnología verde:</b> autos eléctricos, lámparas solares y reciclaje.<br><br>
+
+                🎨 <b>Actividades:</b><br>
+                • Dibuja una casa con paneles solares y molinos de viento.<br>
+                • Crea un cartel que diga “¡Cuidemos el planeta con energía limpia!”.<br><br>
+
+                🧩 <b>Datos curiosos:</b><br>
+                • Un solo panel solar puede durar más de 25 años.<br>
+                • Algunos aviones ya vuelan usando energía solar.<br>
+            </p>
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const infoButtons = document.querySelectorAll('.info-button');
+            let activePanel = null;
+
+            infoButtons.forEach((button, index) => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent the default anchor behavior
+                    const targetId = button.parentElement.getAttribute('href').substring(1);
+                    const targetPanel = document.getElementById(targetId);
+
+                    if (targetPanel) {
+                        if (activePanel && activePanel !== targetPanel) {
+                            activePanel.classList.remove('active');
+                        }
+                        targetPanel.classList.toggle('active');
+                        activePanel = targetPanel.classList.contains('active') ? targetPanel : null;
+
+                        // Smooth scroll to the panel
+                        if (targetPanel.classList.contains('active')) {
+                            const targetTop = targetPanel.getBoundingClientRect().top + window.pageYOffset;
+                            let offset = 0;
+
+                            if (index === 2 || index === 3) { // Buttons 3 and 4
+                                offset = 150;
+                            } else if (index === 4 || index === 5) { // Buttons 5 and 6
+                                offset = 300;
+                            }
+
+                            window.scrollTo({
+                                top: targetTop - offset,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            const curiousFacts = [
+                "**Dato de Física:** ¿Sabías que la luz viaja súper rápido? La luz del sol tarda solo 8 minutos en llegar a la Tierra, ¡como si corriera una carrera espacial!",
+                "**Dato de Biología:** ¡Tu cuerpo es asombroso! Tienes más células en tu cuerpo que estrellas en nuestra galaxia. ¡Eres un universo de células!",
+                "**Dato de Química:** El agua es como un imán. Sus gotitas se pegan unas a otras, y por eso los insectos pueden caminar sobre el agua. ¡Es como si tuvieran zapatos mágicos!",
+                "**Dato de Astronomía:** ¡Vivimos en una galaxia gigante llamada Vía Láctea! Tiene tantas estrellas que si las contaras, tardarías miles de años. ¡Es como tener un frasco de estrellas infinito!",
+                "**Dato de Geología:** El centro de la Tierra es súper caliente, ¡más caliente que un volcán! Pero no te preocupes, estamos protegidos por muchas capas de roca.",
+                "**Dato de Tecnología:** La primera programadora de computadoras fue una mujer llamada Ada Lovelace, ¡hace mucho, mucho tiempo! Ella imaginó cómo las computadoras podrían hacer más que solo sumar números."
+            ];
+
+            const factDisplay = document.getElementById('fact-display');
+
+            function displayRandomFact() {
+                const randomIndex = Math.floor(Math.random() * curiousFacts.length);
+                factDisplay.innerHTML = curiousFacts[randomIndex]; // Use innerHTML for bold text
+            }
+
+            // Display a fact immediately
+            displayRandomFact();
+
+            // Update the fact every 20 seconds (20000 milliseconds)
+            setInterval(displayRandomFact, 20000);
+        });
+    </script>
+    <script src="../Java/Principal.js"></script>
+</body>
+
+</html>

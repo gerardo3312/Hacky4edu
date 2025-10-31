@@ -46,11 +46,11 @@
     <!-- Navegación superior -->
     <nav class="site-nav" aria-label="Navegación principal">
         <ul>
-            <li><a href="Principal.html">Home</a></li>
-            <li><a href="Primaria.html" class="active">Nivel 1</a></li>
-            <li><a href="Secundaria.html">Nivel 2</a></li>
-            <li><a href="Preparatoria.html">Nivel 3</a></li>
-            <li><a href="Universidad.html">Nivel 4</a></li>
+            <li><a href="../HTML/index.html">Inicio</a></li>
+            <li><a href="../HTML/Ciencia.html" class="active">Ciencia</a></li>
+            <li><a href="../HTML/Tecnologia.html">Tecnología</a></li>
+            <li><a href="../HTML/Ingieneria.html">Ingieneria</a></li>
+            <li><a href="../HTML/Matematicas.html">Matemáticas</a></li>
         </ul>
     </nav>
 
@@ -79,6 +79,8 @@
         </div>
         <p id="fact-display"></p>
     </div>
+
+    <img src="../Imagenes/Ciencia/Icono.png" alt="Nuevo Icono" class="new-icon-right">
 
     <main>
         <div class="accordion-container">
@@ -517,7 +519,7 @@
             const infoButtons = document.querySelectorAll('.info-button');
             let activePanel = null;
 
-            infoButtons.forEach(button => {
+            infoButtons.forEach((button, index) => {
                 button.addEventListener('click', (e) => {
                     e.preventDefault(); // Prevent the default anchor behavior
                     const targetId = button.parentElement.getAttribute('href').substring(1);
@@ -532,19 +534,31 @@
 
                         // Smooth scroll to the panel
                         if (targetPanel.classList.contains('active')) {
-                            targetPanel.scrollIntoView({ behavior: 'smooth' });
+                            const targetTop = targetPanel.getBoundingClientRect().top + window.pageYOffset;
+                            let offset = 0;
+
+                            if (index === 2 || index === 3) { // Buttons 3 and 4
+                                offset = 150;
+                            } else if (index === 4 || index === 5) { // Buttons 5 and 6
+                                offset = 300;
+                            }
+
+                            window.scrollTo({
+                                top: targetTop - offset,
+                                behavior: 'smooth'
+                            });
                         }
                     }
                 });
             });
 
             const curiousFacts = [
-                "**Física:** ¿Sabías que la velocidad de la luz en el vacío es de aproximadamente 299,792,458 metros por segundo? Es una constante fundamental de la naturaleza y nada conocido puede viajar más rápido que ella. Esta velocidad es tan inmensa que la luz del Sol tarda solo unos 8 minutos y 20 segundos en llegar a la Tierra, a pesar de la enorme distancia que nos separa.",
-                "**Biología:** El cuerpo humano contiene aproximadamente 37 billones de células. Cada una de estas células es una unidad viva que realiza funciones específicas, desde la respiración hasta la reproducción. Si extendiéramos todo el ADN de una sola célula humana, mediría alrededor de 2 metros de largo, pero está increíblemente empaquetado para caber dentro del núcleo microscópico de la célula.",
-                "**Química:** El agua (H2O) es una molécula polar, lo que significa que tiene una carga ligeramente positiva en un extremo y una ligeramente negativa en el otro. Esta polaridad es la razón por la que el agua es un excelente solvente y por qué tiene una tensión superficial tan alta, permitiendo que algunos insectos caminen sobre ella y que las plantas transporten agua desde sus raíces hasta sus hojas más altas.",
-                "**Astronomía:** Nuestra galaxia, la Vía Láctea, es tan vasta que se estima que contiene entre 100 mil millones y 400 mil millones de estrellas. Si intentáramos contar todas las estrellas visibles en el universo observable, el número sería mayor que todos los granos de arena en todas las playas de la Tierra combinadas, una cifra que desafía la imaginación humana.",
-                "**Geología:** El núcleo de la Tierra está compuesto principalmente de hierro y níquel y se divide en un núcleo externo líquido y un núcleo interno sólido. A pesar de las temperaturas extremas (similares a las de la superficie del Sol), el núcleo interno permanece sólido debido a la inmensa presión. El movimiento del núcleo externo líquido genera el campo magnético de la Tierra, que nos protege de la radiación solar dañina.",
-                "**Tecnología:** El primer programa de computadora fue escrito por Ada Lovelace en el siglo XIX para la máquina analítica de Charles Babbage. Aunque la máquina nunca se construyó completamente en su tiempo, sus algoritmos son reconocidos como los precursores de la programación moderna, lo que la convierte en la primera programadora de la historia."
+                "**Dato de Física:** ¿Sabías que la luz viaja súper rápido? La luz del sol tarda solo 8 minutos en llegar a la Tierra, ¡como si corriera una carrera espacial!",
+                "**Dato de Biología:** ¡Tu cuerpo es asombroso! Tienes más células en tu cuerpo que estrellas en nuestra galaxia. ¡Eres un universo de células!",
+                "**Dato de Química:** El agua es como un imán. Sus gotitas se pegan unas a otras, y por eso los insectos pueden caminar sobre el agua. ¡Es como si tuvieran zapatos mágicos!",
+                "**Dato de Astronomía:** ¡Vivimos en una galaxia gigante llamada Vía Láctea! Tiene tantas estrellas que si las contaras, tardarías miles de años. ¡Es como tener un frasco de estrellas infinito!",
+                "**Dato de Geología:** El centro de la Tierra es súper caliente, ¡más caliente que un volcán! Pero no te preocupes, estamos protegidos por muchas capas de roca.",
+                "**Dato de Tecnología:** La primera programadora de computadoras fue una mujer llamada Ada Lovelace, ¡hace mucho, mucho tiempo! Ella imaginó cómo las computadoras podrían hacer más que solo sumar números."
             ];
 
             const factDisplay = document.getElementById('fact-display');
