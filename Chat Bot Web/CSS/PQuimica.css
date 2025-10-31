@@ -436,6 +436,14 @@ footer {
     object-fit: contain;
 }
 
+.info-button span {
+    font-size: 1.2em; /* Make the font larger */
+    font-family: 'Arial', sans-serif; /* Change the font type */
+    color: #333; /* Adjust color if needed */
+    text-align: center;
+    padding: 0 5px; /* Add some padding to the text */
+}
+
 .info-panel {
     max-height: 0;
     opacity: 0;
@@ -446,9 +454,11 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 0 20px; /* Padding for content inside the panel */
     margin: 0 auto 20px auto; /* Center and space below */
-    max-width: 1000px; /* Wider than main text, but not full screen */
+    max-width: 1200px; /* Wider than main text, but not full screen */
     width: 100%; /* Take full width up to max-width */
     box-sizing: border-box; /* Include padding in width calculation */
+    border: 1px solid #ccc; /* Add a visible border */
+    background-color: #ffffff; /* Ensure solid white background */
 }
 
 .info-panel.active {

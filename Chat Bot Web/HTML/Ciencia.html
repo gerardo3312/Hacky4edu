@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciencia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/PQuimica.css">
 </head>
 
@@ -12,29 +15,29 @@
 
 
     <script type="module">
-          import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
 
-    Chatbot.init({
-        chatflowid: "2ea09844-1987-42f0-b8a0-78d2d5d1a875",
-        apiHost: "http://localhost:3000",
-        chatbotName: "Pollen Jocks",
-        theme: {
-            chatWindow: {
-                welcomeMessage: "¡Hola! Soy Pollen Jocks 🌼 ¿En qué puedo ayudarte?",
-                backgroundColor: "#ffffff",
-                fontSize: "16px",
-                poweredByTextColor: "#999999",
+        Chatbot.init({
+            chatflowid: "2ea09844-1987-42f0-b8a0-78d2d5d1a875",
+            apiHost: "http://localhost:3000",
+            chatbotName: "Pollen Jocks",
+            theme: {
+                chatWindow: {
+                    welcomeMessage: "¡Hola! Soy Pollen Jocks 🌼 ¿En qué puedo ayudarte?",
+                    backgroundColor: "#ffffff",
+                    fontSize: "16px",
+                    poweredByTextColor: "#999999",
+                },
+                button: {
+                    icon: "/", // <-- usa iconUrl, no "icon"
+                    backgroundColor: "#fbbf24",
+                    right: 30,
+                    bottom: 30,
+                    size: 60,
+                    borderRadius: 50, // lo hace circular
+                },
             },
-            button: {
-                icon: "/", // <-- usa iconUrl, no "icon"
-                backgroundColor: "#fbbf24",
-                right: 30,
-                bottom: 30,
-                size: 60,
-                borderRadius: 50, // lo hace circular
-            },
-        },
-    })
+        })
     </script>
 
 
@@ -59,9 +62,12 @@
                 <!-- 'nivel-pill' es una etiqueta visual para indicar el nivel actual -->
                 <span class="nivel-pill">Ciencia</span>
                 <h1 id="primaria-title" class="titulo-tema">Ciencia</h1>
-                <p class="hero-lead">Materiales de nivel 1 basados en temas STEM, diseñados para despertar la
-                    curiosidad mediante explicaciones claras. Incluyen el
-                    apoyo de un tutor generativo que guía el aprendizaje de forma interactiva y personalizada.</p>
+                <p class="hero-tagline">Explora el mundo a través del conocimiento científico.</p>
+                <p class="hero-lead">La sección de Ciencia presenta temas educativos diseñados para niños, enfocados en
+                    despertar su curiosidad y comprensión del mundo natural. Incluye apartados con temas científicos
+                    explicados de forma clara y visual, además de un espacio de experimentos donde los niños pueden
+                    aprender practicando. Al final, cuenta con un chat interactivo que funciona como tutor virtual para
+                    resolver dudas y acompañar el aprendizaje.</p>
                 <div class="hero-ctas">
                     <a href="#quimica" class="boton-interactivo hero-cta-btn" role="button"
                         aria-label="Comenzar por Química">Química</a>
@@ -81,50 +87,52 @@
         <div class="accordion-container">
             <div class="grid-item-wrapper">
                 <div class="info-button" data-target="info-panel-1">
-                    <img src="../Imagenes/Matematicas.jpg" alt="Boton 1" class="button-icon">
-                    <span>Boton 1</span>
+                    <img src="../Imagenes/Ciencia/boton1.png" alt="Boton 1" class="button-icon">
+                    <span>El Sol y la Energía</span>
                 </div>
             </div>
 
             <div class="grid-item-wrapper">
                 <div class="info-button" data-target="info-panel-2">
-                    <img src="../Imagenes/placeholder.png" alt="Boton 2" class="button-icon">
-                    <span>Boton 2</span>
+                    <img src="../Imagenes/Ciencia/Boton2.png" alt="Boton 2" class="button-icon">
+                    <span>Las Plantas y su Crecimiento</span>
                 </div>
             </div>
 
             <div class="grid-item-wrapper">
                 <div class="info-button" data-target="info-panel-3">
-                    <img src="../Imagenes/placeholder.png" alt="Boton 3" class="button-icon">
-                    <span>Boton 3</span>
+                    <img src="../Imagenes/Ciencia/Boton3.png" alt="Boton 3" class="button-icon">
+                    <span>Los Animales y su Hogar</span>
                 </div>
             </div>
 
             <div class="grid-item-wrapper">
                 <div class="info-button" data-target="info-panel-4">
-                    <img src="../Imagenes/placeholder.png" alt="Boton 4" class="button-icon">
-                    <span>Boton 4</span>
+                    <img src="../Imagenes/Ciencia/Boton4.png" alt="Boton 4" class="button-icon">
+                    <span>Los Colores y la Luz</span>
                 </div>
             </div>
 
             <div class="grid-item-wrapper">
                 <div class="info-button" data-target="info-panel-5">
-                    <img src="../Imagenes/placeholder.png" alt="Boton 5" class="button-icon">
-                    <span>Boton 5</span>
+                    <img src="../Imagenes/Ciencia/Boton5.png" alt="Boton 5" class="button-icon">
+                    <span>La Electricidad y los Imánes</span>
                 </div>
             </div>
 
             <div class="grid-item-wrapper">
                 <div class="info-button" data-target="info-panel-6">
-                    <img src="../Imagenes/placeholder.png" alt="Boton 6" class="button-icon">
-                    <span>Boton 6</span>
+                    <img src="../Imagenes/Ciencia/Boton6.png" alt="Boton 6" class="button-icon">
+                    <span>Experimentos</span>
                 </div>
             </div>
         </div>
 
         <div id="info-panel-1" class="info-panel">
-            <p>Información para el Botón 1dgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffhsfdhfghhfgjhgjfghfgd
-                }dssdgdfgfdgfdghfdgdfgfdgfsddfkndsngvdfngvlknvkÑfdnVszvndsnvldvndlkvmdsnvdklsvldsv dsvdsvlkdmslvmlksvd.</p>
+            <p>Información para el Botón
+                1dgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffhsfdhfghhfgjhgjfghfgd
+                }dssdgdfgfdgfdghfdgdfgfdgfsddfkndsngvdfngvlknvkÑfdnVszvndsnvldvndlkvmdsnvdklsvldsv dsvdsvlkdmslvmlksvd.
+            </p>
         </div>
 
         <div id="info-panel-2" class="info-panel">
