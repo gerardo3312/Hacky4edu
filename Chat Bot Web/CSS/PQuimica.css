@@ -124,7 +124,7 @@ header {
 .chat-send-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
 
 .titulo-tema {
-    font-size: 2.5em;
+    font-size: 3.5em;
     color: #2f748b;
     text-align: center;
     font-family: 'Fredoka One', cursive;
@@ -156,7 +156,7 @@ header {
 
 /* --- ESTILO UNIFICADO DE BOTONES (DESCARGA Y CHAT BOT) --- */
 .boton-interactivo {
-    padding: 12px 25px;
+    padding: 25px 25px;
     background: cyan;
     color: #000;
     border: none;
@@ -165,7 +165,7 @@ header {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
 }
 
@@ -415,7 +415,7 @@ footer {
     align-items: center;
     justify-content: center;
     width: 270px; /* Fixed width for the button */
-    height: 270px; /* Fixed height for the button */
+    height: 300px; /* Fixed height for the button */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -438,7 +438,7 @@ footer {
 
 .info-button span {
     font-size: 1.2em; /* Make the font larger */
-    font-family: 'Arial', sans-serif; /* Change the font type */
+    font-family: 'Courier New', Courier, monospace; /* Change the font type */
     color: #333; /* Adjust color if needed */
     text-align: center;
     padding: 0 5px; /* Add some padding to the text */
@@ -481,4 +481,62 @@ footer {
     display: block;
     border-radius: 8px;
     object-fit: cover;
+}
+
+.curious-fact-box {
+    position: absolute;
+    top: 450px; /* Adjusted to be roughly at the height of the first button */
+    left: 80px;
+    width: 250px;
+    padding: 0 15px 15px 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    border: 1px solid #eee;
+}
+
+.curious-fact-box h2 {
+    font-size: 1.3em;
+    color: #2f748b;
+    margin-top: 0;
+    margin-bottom: 0; /* Remove bottom margin as header will have padding */
+    text-align: center;
+}
+
+.curious-fact-header {
+    background-color: #FDFD96; /* Pastel yellow background */
+    padding: 10px 15px; /* Padding for the header */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin: -15px -15px 15px -15px; /* Adjust to fill the top of the parent box */
+}
+
+.curious-fact-box p {
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.tutor-label {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: #2f748b; /* A color that fits the theme */
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-panel p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1em;
 }
