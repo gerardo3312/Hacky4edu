@@ -1,5 +1,6 @@
 html {
     background: #a8e6cf;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -407,6 +408,10 @@ footer {
     align-items: center;
     margin-bottom: 20px; /* Space between each button */
     padding: 0;
+}
+
+.grid-item-wrapper a {
+    text-decoration: none;
 }
 
 .info-button {

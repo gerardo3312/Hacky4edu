@@ -83,45 +83,57 @@
     <main>
         <div class="accordion-container">
             <div class="grid-item-wrapper">
-                <div class="info-button" data-target="info-panel-1">
-                    <img src="../Imagenes/Ciencia/boton1.png" alt="Boton 1" class="button-icon">
-                    <span>El Sol y la Energía</span>
-                </div>
+                <a href="#info-panel-1">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/boton1.png" alt="Boton 1" class="button-icon">
+                        <span>El Sol y la Energía</span>
+                    </div>
+                </a>
             </div>
 
             <div class="grid-item-wrapper">
-                <div class="info-button" data-target="info-panel-2">
-                    <img src="../Imagenes/Ciencia/Boton2.png" alt="Boton 2" class="button-icon">
-                    <span>Las Plantas y su Crecimiento</span>
-                </div>
+                <a href="#info-panel-2">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton2.png" alt="Boton 2" class="button-icon">
+                        <span>Las Plantas y su Crecimiento</span>
+                    </div>
+                </a>
             </div>
 
             <div class="grid-item-wrapper">
-                <div class="info-button" data-target="info-panel-3">
-                    <img src="../Imagenes/Ciencia/Boton3.png" alt="Boton 3" class="button-icon">
-                    <span>Los Animales y su Hogar</span>
-                </div>
+                <a href="#info-panel-3">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton3.png" alt="Boton 3" class="button-icon">
+                        <span>Los Animales y su Hogar</span>
+                    </div>
+                </a>
             </div>
 
             <div class="grid-item-wrapper">
-                <div class="info-button" data-target="info-panel-4">
-                    <img src="../Imagenes/Ciencia/Boton4.png" alt="Boton 4" class="button-icon">
-                    <span>Los Colores y la Luz</span>
-                </div>
+                <a href="#info-panel-4">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton4.png" alt="Boton 4" class="button-icon">
+                        <span>Los Colores y la Luz</span>
+                    </div>
+                </a>
             </div>
 
             <div class="grid-item-wrapper">
-                <div class="info-button" data-target="info-panel-5">
-                    <img src="../Imagenes/Ciencia/Boton5.png" alt="Boton 5" class="button-icon">
-                    <span>La Electricidad y los Imánes</span>
-                </div>
+                <a href="#info-panel-5">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton5.png" alt="Boton 5" class="button-icon">
+                        <span>La Electricidad y los Imánes</span>
+                    </div>
+                </a>
             </div>
 
             <div class="grid-item-wrapper">
-                <div class="info-button" data-target="info-panel-6">
-                    <img src="../Imagenes/Ciencia/Boton6.png" alt="Boton 6" class="button-icon">
-                    <span>Experimentos</span>
-                </div>
+                <a href="#info-panel-6">
+                    <div class="info-button">
+                        <img src="../Imagenes/Ciencia/Boton6.png" alt="Boton 6" class="button-icon">
+                        <span>Experimentos</span>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -506,8 +518,9 @@
             let activePanel = null;
 
             infoButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetId = button.dataset.target;
+                button.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent the default anchor behavior
+                    const targetId = button.parentElement.getAttribute('href').substring(1);
                     const targetPanel = document.getElementById(targetId);
 
                     if (targetPanel) {
@@ -516,6 +529,11 @@
                         }
                         targetPanel.classList.toggle('active');
                         activePanel = targetPanel.classList.contains('active') ? targetPanel : null;
+
+                        // Smooth scroll to the panel
+                        if (targetPanel.classList.contains('active')) {
+                            targetPanel.scrollIntoView({ behavior: 'smooth' });
+                        }
                     }
                 });
             });
