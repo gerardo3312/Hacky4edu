@@ -12,31 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
-<style>
-body {
-font-family: Arial, sans-serif;
-padding: 40px;
-background: #f8fafc;
-}
-button {
-background-color: #fbbf24;
- color: #000;
-font-size: 16px;
- padding: 10px 20px;
- border: none;
-border-radius: 8px;
- cursor: pointer;
- }
-#respuesta {
- margin-top: 20px;
-padding: 10px;
- background: #fff;
- border-radius: 8px;
- box-shadow: 0 0 5px rgba(0,0,0,0.1);
- min-height: 50px;
- white-space: pre-wrap;
- }
-</style>
 <body>
 
 
@@ -224,54 +199,6 @@ padding: 10px;
                     </ul>
                 </div>
                 <button onclick="downloadPDF('info-panel-1')">Descargar PDF</button>
-                <p>Pulsa el botón para enviar una pregunta al agente local.</p>
-<button id="btnPregunta">Preguntar al agente</button>
-<div id="respuesta">Esperando interacción...</div>
-
-<script>
-const chatflowId = "2ea09844-1987-42f0-b8a0-78d2d5d1a875"; 
-const apiHost = "http://localhost:3000"; 
-
-const btn = document.getElementById("btnPregunta");
-const respuestaDiv = document.getElementById("respuesta");
-
- btn.addEventListener("click", async () => {
-const pregunta = "Puedes dar una explicacion mas del tema";
- respuestaDiv.innerText = "Consultando al agente...";
-
- try {
- const response = await fetch(`${apiHost}/api/v1/prediction/${chatflowId}`, {
- method: "POST",
- headers: {
-"Content-Type": "application/json",
- },
- body: JSON.stringify({
-
- question: pregunta,
- }),
- });
-
- if (!response.ok) {
- respuestaDiv.innerText = `Error HTTP ${response.status}: ${response.statusText}. Revisa la consola para más detalles.`;
- const errorBody = await response.text();
- console.error("Cuerpo del error HTTP:", errorBody);
- return;
- }
-
-const data = await response.json();
-console.log("Respuesta del servidor:", data);
-
-if (data.text) {
-respuestaDiv.innerText = data.text;
-} else {
- respuestaDiv.innerText = "Respuesta recibida sin campo 'text':\n" + JSON.stringify(data, null, 2);
- }
-} catch (err) {
- console.error("Error en la solicitud fetch:", err);
-respuestaDiv.innerText = "Error al contactar al agente";
- }
-});
-</script>
             </div>
 
             <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
@@ -497,8 +424,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
 });
 </script>
 </body>        
-        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
-
         </div>
 
         <div id="info-panel-3" class="info-panel">
@@ -556,8 +481,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
                 </ul>
                 <button onclick="downloadPDF('info-panel-3')">Descargar PDF</button>
             </div>
-            
-            <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
                 <style>
 body {
 font-family: Arial, sans-serif;
@@ -637,8 +560,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
 });
 </script>
 </body>        
-        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
-
         </div>
 
         <div id="info-panel-4" class="info-panel">
@@ -706,8 +627,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
                 </ul>
                 <button onclick="downloadPDF('info-panel-4')">Descargar PDF</button>
             </div>
-
-            <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
                 <style>
 body {
 font-family: Arial, sans-serif;
@@ -787,8 +706,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
 });
 </script>
 </body>        
-        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
-
         </div>
 
         <div id="info-panel-5" class="info-panel">
@@ -847,8 +764,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
                 </ul>
                 <button onclick="downloadPDF('info-panel-5')">Descargar PDF</button>
             </div>
-
-            <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
                 <style>
 body {
 font-family: Arial, sans-serif;
@@ -928,8 +843,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
 });
 </script>
 </body>        
-        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
-
         </div>
 
         <div id="info-panel-6" class="info-panel">
@@ -1000,8 +913,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
                 • Limpia bien los vasos para poder reutilizarlos en otros experimentos.<br>
             </p>
             <button onclick="downloadPDF('info-panel-6')">Descargar PDF</button>
-
-            <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
                 <style>
 body {
 font-family: Arial, sans-serif;
@@ -1081,8 +992,6 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
 });
 </script>
 </body>        
-        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
-
         </div>
     </main>
 
@@ -1093,7 +1002,7 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
 
             infoButtons.forEach((button, index) => {
                 button.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent the default anchor behavior
+                    e.preventDefault(); 
                     const targetId = button.parentElement.getAttribute('href').substring(1);
                     const targetPanel = document.getElementById(targetId);
 
@@ -1103,15 +1012,13 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
                         }
                         targetPanel.classList.toggle('active');
                         activePanel = targetPanel.classList.contains('active') ? targetPanel : null;
-
-                        // Smooth scroll to the panel
                         if (targetPanel.classList.contains('active')) {
                             const targetTop = targetPanel.getBoundingClientRect().top + window.pageYOffset;
                             let offset = 0;
 
-                            if (index === 2 || index === 3) { // Buttons 3 and 4
+                            if (index === 2 || index === 3) { 
                                 offset = 150;
-                            } else if (index === 4 || index === 5) { // Buttons 5 and 6
+                            } else if (index === 4 || index === 5) { 
                                 offset = 300;
                             }
 
@@ -1137,13 +1044,9 @@ respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise es
 
             function displayRandomFact() {
                 const randomIndex = Math.floor(Math.random() * curiousFacts.length);
-                factDisplay.innerHTML = curiousFacts[randomIndex]; // Use innerHTML for bold text
+                factDisplay.innerHTML = curiousFacts[randomIndex]; 
             }
-
-            // Display a fact immediately
             displayRandomFact();
-
-            // Update the fact every 20 seconds (20000 milliseconds)
             setInterval(displayRandomFact, 20000);
         });
     </script>
