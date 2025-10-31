@@ -390,9 +390,10 @@ footer {
 }
 
 .accordion-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px; /* Adjust max-width for a single column layout */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns, each taking equal space */
+    gap: 20px; /* Space between grid items */
+    max-width: 600px; /* Adjusted max-width for 2-column layout */
     margin: 30px auto; /* Center the container */
     padding: 0; /* Remove padding from container */
     border: none; /* Remove border from container */
@@ -404,76 +405,70 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px; /* Add space between each accordion item */
-    border: 1px solid #ddd; /* Add border to wrapper */
-    border-radius: 8px; /* Add border-radius to wrapper */
-    background-color: #fff; /* Add background to wrapper */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to wrapper */
-    padding: 15px; /* Add padding to wrapper */
+    margin-bottom: 20px; /* Space between each button */
+    padding: 0;
 }
 
-.accordion-item {
-    width: 100%; /* Ensure details takes full width of its grid item */
-    border-bottom: none; /* Remove border-bottom from individual items */
-}
-
-.accordion-item:last-child {
-    border-bottom: none;
-}
-
-.accordion-header {
-    display: block; /* Allow the accordion-button inside to control layout */
-    padding: 0; /* Remove padding from summary */
-    background-color: transparent; /* No background for summary itself */
-    cursor: pointer;
-    font-weight: bold;
-    color: #333;
-    transition: background-color 0.3s ease;
-    border: none; /* No border for summary itself */
-    border-radius: 0; /* No border-radius for summary itself */
-    text-align: center;
-}
-
-.accordion-header:hover {
-    background-color: transparent; /* No background for summary itself */
-}
-
-.accordion-button {
+.info-button {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 120px; /* Increased width for square shape */
-    height: 120px; /* Increased height for square shape */
+    width: 270px; /* Fixed width for the button */
+    height: 270px; /* Fixed height for the button */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     margin: 0 auto; /* Center the button within its grid item */
+    cursor: pointer;
 }
 
-.accordion-button:hover {
+.info-button:hover {
     background-color: #f0f0f0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.accordion-button .button-icon {
-    width: 80px; /* Increased image size */
-    height: 80px; /* Increased image size */
+.info-button .button-icon {
+    width: 250px; /* Fixed image size */
+    height: 250px; /* Fixed image size */
     margin-bottom: 5px; /* Space between image and text */
     object-fit: contain;
 }
 
-.accordion-content {
-    padding: 15px 20px;
+.info-panel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out;
     background-color: #fff;
-    border-top: 1px solid #eee;
-    margin-top: 10px; /* Space between button and content */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0 20px; /* Padding for content inside the panel */
+    margin: 0 auto 20px auto; /* Center and space below */
+    max-width: 1000px; /* Wider than main text, but not full screen */
+    width: 100%; /* Take full width up to max-width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.accordion-item[open] .accordion-button {
-    background-color: #e0e0e0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.info-panel.active {
+    grid-column: 1 / -1; /* Span all columns when active */
+    max-height: 1000px; /* Large enough value to show content */
+    opacity: 1;
+    padding: 15px 20px; /* Add padding when active */
+}
+
+.info-panel .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns, each taking equal space */
+    gap: 15px; /* Space between images */
+    margin-top: 15px; /* Space above the image grid */
+}
+
+.info-panel .image-grid img {
+    width: 100%; /* Make images fill their grid cell */
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
 }

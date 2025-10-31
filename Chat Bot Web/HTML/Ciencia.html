@@ -80,87 +80,93 @@
     <main>
         <div class="accordion-container">
             <div class="grid-item-wrapper">
-                <details class="accordion-item">
-                    <summary class="accordion-header">
-                        <div class="accordion-button">
-                            <img src="../Imagenes/Matematicas.jpg" alt="Boton 1" class="button-icon">
-                            <span>Boton 1</span>
-                        </div>
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Información para el Botón 1.</p>
-                    </div>
-                </details>
+                <div class="info-button" data-target="info-panel-1">
+                    <img src="../Imagenes/Matematicas.jpg" alt="Boton 1" class="button-icon">
+                    <span>Boton 1</span>
+                </div>
             </div>
 
             <div class="grid-item-wrapper">
-                <details class="accordion-item">
-                    <summary class="accordion-header">
-                        <div class="accordion-button">
-                            <img src="../Imagenes/placeholder.png" alt="Boton 2" class="button-icon">
-                            <span>Boton 2</span>
-                        </div>
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Información para el Botón 2.</p>
-                    </div>
-                </details>
+                <div class="info-button" data-target="info-panel-2">
+                    <img src="../Imagenes/placeholder.png" alt="Boton 2" class="button-icon">
+                    <span>Boton 2</span>
+                </div>
             </div>
 
             <div class="grid-item-wrapper">
-                <details class="accordion-item">
-                    <summary class="accordion-header">
-                        <div class="accordion-button">
-                            <img src="../Imagenes/placeholder.png" alt="Boton 3" class="button-icon">
-                            <span>Boton 3</span>
-                        </div>
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Información para el Botón 3.</p>
-                    </div>
-                </details>
+                <div class="info-button" data-target="info-panel-3">
+                    <img src="../Imagenes/placeholder.png" alt="Boton 3" class="button-icon">
+                    <span>Boton 3</span>
+                </div>
             </div>
 
             <div class="grid-item-wrapper">
-                <details class="accordion-item">
-                    <summary class="accordion-header">
-                        <div class="accordion-button">
-                            <img src="../Imagenes/placeholder.png" alt="Boton 4" class="button-icon">
-                            <span>Boton 4</span>
-                        </div>
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Información para el Botón 4.</p>
-                    </div>
-                </details>
+                <div class="info-button" data-target="info-panel-4">
+                    <img src="../Imagenes/placeholder.png" alt="Boton 4" class="button-icon">
+                    <span>Boton 4</span>
+                </div>
             </div>
 
             <div class="grid-item-wrapper">
-                <details class="accordion-item">
-                    <summary class="accordion-header">
-                        <div class="accordion-button">
-                            <img src="../Imagenes/placeholder.png" alt="Boton 5" class="button-icon">
-                            <span>Boton 5</span>
-                        </div>
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Información para el Botón 5.</p>
-                    </div>
-                </details>
+                <div class="info-button" data-target="info-panel-5">
+                    <img src="../Imagenes/placeholder.png" alt="Boton 5" class="button-icon">
+                    <span>Boton 5</span>
+                </div>
             </div>
 
             <div class="grid-item-wrapper">
-                <details class="accordion-item">
-                    <summary class="accordion-header">
-                        <div class="accordion-button">
-                            <img src="../Imagenes/placeholder.png" alt="Boton 6" class="button-icon">
-                            <span>Boton 6</span>
-                        </div>
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Información para el Botón 6.</p>
-                    </div>
-                </details>
+                <div class="info-button" data-target="info-panel-6">
+                    <img src="../Imagenes/placeholder.png" alt="Boton 6" class="button-icon">
+                    <span>Boton 6</span>
+                </div>
             </div>
         </div>
+
+        <div id="info-panel-1" class="info-panel">
+            <p>Información para el Botón 1dgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffhsfdhfghhfgjhgjfghfgd
+                }dssdgdfgfdgfdghfdgdfgfdgfsddfkndsngvdfngvlknvkÑfdnVszvndsnvldvndlkvmdsnvdklsvldsv dsvdsvlkdmslvmlksvd.</p>
+        </div>
+
+        <div id="info-panel-2" class="info-panel">
+            <p>Información para el Botón 2.</p>
+        </div>
+
+        <div id="info-panel-3" class="info-panel">
+            <p>Información para el Botón 3.</p>
+        </div>
+
+        <div id="info-panel-4" class="info-panel">
+            <p>Información para el Botón 4.</p>
+        </div>
+
+        <div id="info-panel-5" class="info-panel">
+            <p>Información para el Botón 5.</p>
+        </div>
+
+        <div id="info-panel-6" class="info-panel">
+            <p>Información para el Botón 6.</p>
+        </div>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const infoButtons = document.querySelectorAll('.info-button');
+            let activePanel = null;
+
+            infoButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    const targetPanel = document.getElementById(targetId);
+
+                    if (targetPanel) {
+                        if (activePanel && activePanel !== targetPanel) {
+                            activePanel.classList.remove('active');
+                        }
+                        targetPanel.classList.toggle('active');
+                        activePanel = targetPanel.classList.contains('active') ? targetPanel : null;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
