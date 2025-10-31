@@ -189,10 +189,6 @@ footer {
 }
 
 
-/* ----------------------------------------------------------- */
-/* --- REGLAS EXCLUSIVAS PARA IMPRESIÓN/PDF (@media print) --- */
-/* ----------------------------------------------------------- */
-
 @media print {
     /* Limpieza de colores y fondos */
     body, html, .contenido-tema, header {
@@ -393,3 +389,91 @@ footer {
     margin: 0 auto;
 }
 
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Adjust max-width for a single column layout */
+    margin: 30px auto; /* Center the container */
+    padding: 0; /* Remove padding from container */
+    border: none; /* Remove border from container */
+    background-color: transparent; /* Remove background from container */
+    box-shadow: none; /* Remove shadow from container */
+}
+
+.grid-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Add space between each accordion item */
+    border: 1px solid #ddd; /* Add border to wrapper */
+    border-radius: 8px; /* Add border-radius to wrapper */
+    background-color: #fff; /* Add background to wrapper */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to wrapper */
+    padding: 15px; /* Add padding to wrapper */
+}
+
+.accordion-item {
+    width: 100%; /* Ensure details takes full width of its grid item */
+    border-bottom: none; /* Remove border-bottom from individual items */
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    display: block; /* Allow the accordion-button inside to control layout */
+    padding: 0; /* Remove padding from summary */
+    background-color: transparent; /* No background for summary itself */
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.3s ease;
+    border: none; /* No border for summary itself */
+    border-radius: 0; /* No border-radius for summary itself */
+    text-align: center;
+}
+
+.accordion-header:hover {
+    background-color: transparent; /* No background for summary itself */
+}
+
+.accordion-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px; /* Increased width for square shape */
+    height: 120px; /* Increased height for square shape */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto; /* Center the button within its grid item */
+}
+
+.accordion-button:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accordion-button .button-icon {
+    width: 80px; /* Increased image size */
+    height: 80px; /* Increased image size */
+    margin-bottom: 5px; /* Space between image and text */
+    object-fit: contain;
+}
+
+.accordion-content {
+    padding: 15px 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    margin-top: 10px; /* Space between button and content */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-item[open] .accordion-button {
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
