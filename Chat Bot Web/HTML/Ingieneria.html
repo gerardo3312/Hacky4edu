@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/PQuimica.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -139,6 +141,7 @@
                 redactar conclusiones cortas.</p>
             <p>Recursos y extensión: recomendar experimentos virtuales (simuladores) y lectura breve sobre la
                 historia del desarrollo de la tabla periódica.</p>
+            <button onclick="downloadPDF('info-panel-1')">Descargar PDF</button>
         </div>
 
         <div id="info-panel-2" class="info-panel">
@@ -159,6 +162,7 @@
             </p>
             <p>Actividades de evaluación: escritura de un ensayo corto con argumentos apoyados en evidencia y una
                 presentación en equipo que exponga diferentes interpretaciones del mismo evento.</p>
+            <button onclick="downloadPDF('info-panel-2')">Descargar PDF</button>
         </div>
 
         <div id="info-panel-3" class="info-panel">
@@ -179,6 +183,7 @@
             </p>
             <p>Evaluación: entrega de un informe técnico con esquema del circuito, pseudocódigo y una reflexión
                 sobre fallos y mejoras.</p>
+            <button onclick="downloadPDF('info-panel-3')">Descargar PDF</button>
         </div>
 
         <div id="info-panel-4" class="info-panel">

@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/PQuimica.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -197,6 +199,7 @@
                             hogares si se aprovechara completamente.</li>
                     </ul>
                 </div>
+                <button onclick="downloadPDF('info-panel-1')">Descargar PDF</button>
             </div>
 
         </div>
@@ -257,6 +260,7 @@
                     <li>🌬️ Las plantas también “respiran”, aunque no lo veamos.</li>
                     <li>🌼 Las flores atraen a los insectos con <b>colores y aromas especiales</b>.</li>
                 </ul>
+                <button onclick="downloadPDF('info-panel-2')">Descargar PDF</button>
             </div>
 
         </div>
@@ -314,6 +318,7 @@
                     <li>🐻 Algunos animales <b>hibernan</b> (duermen todo el invierno).</li>
                     <li>🐝 Las <b>abejas</b> son esenciales para que muchas plantas produzcan frutos.</li>
                 </ul>
+                <button onclick="downloadPDF('info-panel-3')">Descargar PDF</button>
             </div>
 
         </div>
@@ -381,6 +386,7 @@
                     <li>👁️ El ojo humano puede distinguir más de <b>10 millones de colores</b>.</li>
                     <li>💙 El <b>azul</b> calma, mientras que el <b>rojo</b> da energía. 🔴⚡</li>
                 </ul>
+                <button onclick="downloadPDF('info-panel-4')">Descargar PDF</button>
             </div>
 
         </div>
@@ -439,6 +445,7 @@
                     <li>🚄 Los <b>trenes magnéticos (Maglev)</b> usan imanes para flotar sobre los rieles y moverse muy
                         rápido.</li>
                 </ul>
+                <button onclick="downloadPDF('info-panel-5')">Descargar PDF</button>
             </div>
 
         </div>
@@ -510,6 +517,7 @@
                 • Lávate las manos al terminar.<br>
                 • Limpia bien los vasos para poder reutilizarlos en otros experimentos.<br>
             </p>
+            <button onclick="downloadPDF('info-panel-6')">Descargar PDF</button>
 
         </div>
     </main>
@@ -576,4 +584,21 @@
         });
     </script>
     <script src="../Java/Principal.js"></script>
+    <script>
+        function downloadPDF(panelId) {
+            const { jsPDF } = window.jspdf;
+            const panel = document.getElementById(panelId);
+            const title = panel.querySelector('h2').innerText;
+
+            html2canvas(panel).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF();
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save(`${title}.pdf`);
+            });
+        }
+    </script>
 </body>
