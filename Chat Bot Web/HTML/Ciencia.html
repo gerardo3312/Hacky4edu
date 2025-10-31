@@ -12,7 +12,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
-
+<style>
+body {
+font-family: Arial, sans-serif;
+padding: 40px;
+background: #f8fafc;
+}
+button {
+background-color: #fbbf24;
+ color: #000;
+font-size: 16px;
+ padding: 10px 20px;
+ border: none;
+border-radius: 8px;
+ cursor: pointer;
+ }
+#respuesta {
+ margin-top: 20px;
+padding: 10px;
+ background: #fff;
+ border-radius: 8px;
+ box-shadow: 0 0 5px rgba(0,0,0,0.1);
+ min-height: 50px;
+ white-space: pre-wrap;
+ }
+</style>
 <body>
 
 
@@ -200,6 +224,54 @@
                     </ul>
                 </div>
                 <button onclick="downloadPDF('info-panel-1')">Descargar PDF</button>
+                <p>Pulsa el botón para enviar una pregunta al agente local.</p>
+<button id="btnPregunta">Preguntar al agente</button>
+<div id="respuesta">Esperando interacción...</div>
+
+<script>
+const chatflowId = "2ea09844-1987-42f0-b8a0-78d2d5d1a875"; 
+const apiHost = "http://localhost:3000"; 
+
+const btn = document.getElementById("btnPregunta");
+const respuestaDiv = document.getElementById("respuesta");
+
+ btn.addEventListener("click", async () => {
+const pregunta = "Puedes dar una explicacion mas del tema";
+ respuestaDiv.innerText = "Consultando al agente...";
+
+ try {
+ const response = await fetch(`${apiHost}/api/v1/prediction/${chatflowId}`, {
+ method: "POST",
+ headers: {
+"Content-Type": "application/json",
+ },
+ body: JSON.stringify({
+
+ question: pregunta,
+ }),
+ });
+
+ if (!response.ok) {
+ respuestaDiv.innerText = `Error HTTP ${response.status}: ${response.statusText}. Revisa la consola para más detalles.`;
+ const errorBody = await response.text();
+ console.error("Cuerpo del error HTTP:", errorBody);
+ return;
+ }
+
+const data = await response.json();
+console.log("Respuesta del servidor:", data);
+
+if (data.text) {
+respuestaDiv.innerText = data.text;
+} else {
+ respuestaDiv.innerText = "Respuesta recibida sin campo 'text':\n" + JSON.stringify(data, null, 2);
+ }
+} catch (err) {
+ console.error("Error en la solicitud fetch:", err);
+respuestaDiv.innerText = "Error al contactar al agente";
+ }
+});
+</script>
             </div>
 
             <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
