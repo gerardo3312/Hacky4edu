@@ -142,6 +142,89 @@
                 🧩 <b>Datos curiosos:</b><br>
                 • Las primeras computadoras eran tan grandes como una habitación.<br>
                 • Hoy en día, los teléfonos también son computadoras pequeñas.<br>
+
+                <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+                <style>
+body {
+font-family: Arial, sans-serif;
+
+background:  #a8e6cf;
+}
+button {
+background-color: #fbbf24;
+ color: #000;
+font-size: 16px;
+ padding: 10px 20px;
+ border: none;
+border-radius: 8px;
+ cursor: pointer;
+ }
+#respuesta {
+ margin-top: 20px;
+padding: 10px;
+ background: #ffffff;
+ border-radius: 8px;
+ box-shadow: 0 0 5px rgba(0,0,0,0.1);
+ min-height: 50px;
+ white-space: pre-wrap;
+ }
+</style>
+</head>
+<body>
+<p>Pulsa el botón para saber mas</p>
+<button id="btnPregunta">Pollen Jocks</button>
+<div id="respuesta">...</div>
+
+<script>
+
+ 
+    const chatflowId = "2ea09844-1987-42f0-b8a0-78d2d5d1a875"; 
+    const apiHost = "http://localhost:3000";
+
+    const btn = document.getElementById("btnPregunta");
+    const respuestaDiv = document.getElementById("respuesta");
+
+ btn.addEventListener("click", async () => {
+const pregunta = "¿puedes darme datos de que es una computadora?";
+ respuestaDiv.innerText = "Esperando al Agente...";
+
+ try {
+
+ const response = await fetch(`${apiHost}/api/v1/prediction/${chatflowId}`, {
+ method: "POST",
+ headers: {
+"Content-Type": "application/json",
+ },
+ body: JSON.stringify({
+
+ question: pregunta,
+ }),
+ });
+
+ if (!response.ok) {
+ respuestaDiv.innerText = `Error HTTP ${response.status}: ${response.statusText}. Revisa la consola para más detalles.`;
+ const errorBody = await response.text();
+ console.error("Cuerpo del error HTTP:", errorBody);
+ return;
+ }
+
+const data = await response.json();
+console.log("Respuesta del servidor:", data);
+
+if (data.text) {
+respuestaDiv.innerText = data.text;
+} else {
+ respuestaDiv.innerText = "Respuesta recibida sin campo 'text':\n" + JSON.stringify(data, null, 2);
+ }
+} catch (err) {
+ console.error("Error en la solicitud fetch:", err);
+respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise está corriendo en **http://localhost:3000** y si tu navegador tiene habilitada la consola para ver errores CORS.";
+ }
+});
+</script>
+</body>        
+        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+
             </p>
 
         </div>
@@ -173,6 +256,88 @@
                 • Cada segundo, millones de personas usan Internet al mismo tiempo.<br>
             </p>
 
+                <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+                <style>
+body {
+font-family: Arial, sans-serif;
+
+background:  #a8e6cf;
+}
+button {
+background-color: #fbbf24;
+ color: #000;
+font-size: 16px;
+ padding: 10px 20px;
+ border: none;
+border-radius: 8px;
+ cursor: pointer;
+ }
+#respuesta {
+ margin-top: 20px;
+padding: 10px;
+ background: #ffffff;
+ border-radius: 8px;
+ box-shadow: 0 0 5px rgba(0,0,0,0.1);
+ min-height: 50px;
+ white-space: pre-wrap;
+ }
+</style>
+</head>
+<body>
+<p>Pulsa el botón para saber mas</p>
+<button id="btnPregunta">Pollen Jocks</button>
+<div id="respuesta">...</div>
+
+<script>
+
+ 
+    const chatflowId = "2ea09844-1987-42f0-b8a0-78d2d5d1a875"; 
+    const apiHost = "http://localhost:3000";
+
+    const btn = document.getElementById("btnPregunta");
+    const respuestaDiv = document.getElementById("respuesta");
+
+ btn.addEventListener("click", async () => {
+const pregunta = "¿puedes darme datos del sol y la energia?";
+ respuestaDiv.innerText = "Esperando al Agente...";
+
+ try {
+
+ const response = await fetch(`${apiHost}/api/v1/prediction/${chatflowId}`, {
+ method: "POST",
+ headers: {
+"Content-Type": "application/json",
+ },
+ body: JSON.stringify({
+
+ question: pregunta,
+ }),
+ });
+
+ if (!response.ok) {
+ respuestaDiv.innerText = `Error HTTP ${response.status}: ${response.statusText}. Revisa la consola para más detalles.`;
+ const errorBody = await response.text();
+ console.error("Cuerpo del error HTTP:", errorBody);
+ return;
+ }
+
+const data = await response.json();
+console.log("Respuesta del servidor:", data);
+
+if (data.text) {
+respuestaDiv.innerText = data.text;
+} else {
+ respuestaDiv.innerText = "Respuesta recibida sin campo 'text':\n" + JSON.stringify(data, null, 2);
+ }
+} catch (err) {
+ console.error("Error en la solicitud fetch:", err);
+respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise está corriendo en **http://localhost:3000** y si tu navegador tiene habilitada la consola para ver errores CORS.";
+ }
+});
+</script>
+</body>        
+        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+
         </div>
 
         <div id="info-panel-3" class="info-panel">
@@ -200,6 +365,88 @@
                 • Hay robots que exploran Marte y mandan fotos a la Tierra.<br>
             </p>
 
+            <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+                <style>
+body {
+font-family: Arial, sans-serif;
+
+background:  #a8e6cf;
+}
+button {
+background-color: #fbbf24;
+ color: #000;
+font-size: 16px;
+ padding: 10px 20px;
+ border: none;
+border-radius: 8px;
+ cursor: pointer;
+ }
+#respuesta {
+ margin-top: 20px;
+padding: 10px;
+ background: #ffffff;
+ border-radius: 8px;
+ box-shadow: 0 0 5px rgba(0,0,0,0.1);
+ min-height: 50px;
+ white-space: pre-wrap;
+ }
+</style>
+</head>
+<body>
+<p>Pulsa el botón para saber mas</p>
+<button id="btnPregunta">Pollen Jocks</button>
+<div id="respuesta">...</div>
+
+<script>
+
+ 
+    const chatflowId = "2ea09844-1987-42f0-b8a0-78d2d5d1a875"; 
+    const apiHost = "http://localhost:3000";
+
+    const btn = document.getElementById("btnPregunta");
+    const respuestaDiv = document.getElementById("respuesta");
+
+ btn.addEventListener("click", async () => {
+const pregunta = "¿puedes darme datos del sol y la energia?";
+ respuestaDiv.innerText = "Esperando al Agente...";
+
+ try {
+
+ const response = await fetch(`${apiHost}/api/v1/prediction/${chatflowId}`, {
+ method: "POST",
+ headers: {
+"Content-Type": "application/json",
+ },
+ body: JSON.stringify({
+
+ question: pregunta,
+ }),
+ });
+
+ if (!response.ok) {
+ respuestaDiv.innerText = `Error HTTP ${response.status}: ${response.statusText}. Revisa la consola para más detalles.`;
+ const errorBody = await response.text();
+ console.error("Cuerpo del error HTTP:", errorBody);
+ return;
+ }
+
+const data = await response.json();
+console.log("Respuesta del servidor:", data);
+
+if (data.text) {
+respuestaDiv.innerText = data.text;
+} else {
+ respuestaDiv.innerText = "Respuesta recibida sin campo 'text':\n" + JSON.stringify(data, null, 2);
+ }
+} catch (err) {
+ console.error("Error en la solicitud fetch:", err);
+respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise está corriendo en **http://localhost:3000** y si tu navegador tiene habilitada la consola para ver errores CORS.";
+ }
+});
+</script>
+</body>        
+        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+
         </div>
 
         <div id="info-panel-4" class="info-panel">
@@ -226,6 +473,89 @@
                 🧩 <b>Datos curiosos:</b><br>
                 • Un solo panel solar puede durar más de 25 años.<br>
                 • Algunos aviones ya vuelan usando energía solar.<br>
+
+                <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+                <style>
+body {
+font-family: Arial, sans-serif;
+
+background:  #a8e6cf;
+}
+button {
+background-color: #fbbf24;
+ color: #000;
+font-size: 16px;
+ padding: 10px 20px;
+ border: none;
+border-radius: 8px;
+ cursor: pointer;
+ }
+#respuesta {
+ margin-top: 20px;
+padding: 10px;
+ background: #ffffff;
+ border-radius: 8px;
+ box-shadow: 0 0 5px rgba(0,0,0,0.1);
+ min-height: 50px;
+ white-space: pre-wrap;
+ }
+</style>
+</head>
+<body>
+<p>Pulsa el botón para saber mas</p>
+<button id="btnPregunta">Pollen Jocks</button>
+<div id="respuesta">...</div>
+
+<script>
+
+ 
+    const chatflowId = "2ea09844-1987-42f0-b8a0-78d2d5d1a875"; 
+    const apiHost = "http://localhost:3000";
+
+    const btn = document.getElementById("btnPregunta");
+    const respuestaDiv = document.getElementById("respuesta");
+
+ btn.addEventListener("click", async () => {
+const pregunta = "¿puedes darme datos del sol y la energia?";
+ respuestaDiv.innerText = "Esperando al Agente...";
+
+ try {
+
+ const response = await fetch(`${apiHost}/api/v1/prediction/${chatflowId}`, {
+ method: "POST",
+ headers: {
+"Content-Type": "application/json",
+ },
+ body: JSON.stringify({
+
+ question: pregunta,
+ }),
+ });
+
+ if (!response.ok) {
+ respuestaDiv.innerText = `Error HTTP ${response.status}: ${response.statusText}. Revisa la consola para más detalles.`;
+ const errorBody = await response.text();
+ console.error("Cuerpo del error HTTP:", errorBody);
+ return;
+ }
+
+const data = await response.json();
+console.log("Respuesta del servidor:", data);
+
+if (data.text) {
+respuestaDiv.innerText = data.text;
+} else {
+ respuestaDiv.innerText = "Respuesta recibida sin campo 'text':\n" + JSON.stringify(data, null, 2);
+ }
+} catch (err) {
+ console.error("Error en la solicitud fetch:", err);
+respuestaDiv.innerText = "❌ Error al contactar al agente. Revisa si Flowise está corriendo en **http://localhost:3000** y si tu navegador tiene habilitada la consola para ver errores CORS.";
+ }
+});
+</script>
+</body>        
+        <!-- !!!AGREGADO DE BOTON CHAT BOT!!!  -->
+
             </p>
 
         </div>
